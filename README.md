@@ -1,10 +1,8 @@
-# LK2 URL Shortner Service
+# Demo
 
-This repository serves as a simple, working example for hosting ASP.NET Core applications on Ubuntu Linux.
+This repository serves as a simple, working example for hosting ASP.NET Core 1.1 applications on Ubuntu Linux.
 
 This code is recommended for demonstration purposes only.
-
-You can see and follow the blog post here: http://blog.bobbyallen.me/2017/05/01/deploying-and-hosting-asp-net-core-applications-on-ubuntu-linux/
 
 ## Supported Database Engines
 
