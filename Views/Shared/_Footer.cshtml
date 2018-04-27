@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+}
+
+<div title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
+    <form id="selectLanguage" asp-controller="Home"
+          asp-action="SetLanguage" asp-route-returnUrl="@returnUrl"
+          method="post" class="form-horizontal" role="form">
+        <label asp-for="@requestCulture.RequestCulture.UICulture.Name">LINGUA:</label> <select name="culture"
+                                                                                                               onchange="this.form.submit();"
+                                                                                                               asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>
+    </form>
+</div>
+@*<footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About LK2</h5>
+                    <p class="grey-text text-lighten-4">
+                        LK2 is a simple C#/ASP.NET Core web application developed solely
+                        <a href="http://blog.bobbyallen.me/2017/05/01/deploying-and-hosting-asp-net-core-applications-on-ubuntu-linux/" target="_blank" style="color: #f3f3f3;">to demonstrate how to deploy and host ASP.NET core web applications on Linux</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                &copy; 2017
+                <a class="orange-text text-lighten-3" href="https://bobbyallen.me" target="_blank">Bobby Allen</a>
+            </div>
+        </div>
+    </footer>*@

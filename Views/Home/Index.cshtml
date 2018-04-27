@@ -1,0 +1,40 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@* The IViewLocalizer can be injected into the view. It does two things of interest:
+    1. It can HTML encode *parameters* passed to resource strings (not the resource strings themselves, as they may contain
+       HTML) automatically, and return the result as an IHtmlContent so Razor won't HTML encode it again;
+    2. It looks for localization resources for this view based on the view path, e.g. if the view's path is
+       "MyApplication/Views/Home/Index.cshtml", then the corresponding resource base path will be "MyApplication.Views.Home.Index" *@
+@inject IViewLocalizer Localizer
+@using LK2.Models
+
+@{
+    var categories = ViewBag.Categories as List<CategoryProductLanguage>;
+    var products = ViewBag.Products as List<ProductLanguage>;
+    // ITA
+    var catITA = categories.Where(q => q.LanguageID.Equals(1)).ToList();
+    var prodITA = products.Where(q => q.LanguageID.Equals(1)).ToList();
+    // ENG
+    var catENG = categories.Where(q => q.LanguageID.Equals(2)).ToList();
+    var prodENG = products.Where(q => q.LanguageID.Equals(2)).ToList();
+}
+<br><br>
+<h2 class="header center black-text">PROCEDI CON LA SELEZIONE</h2>
+<div class="section">
+    <div class="row">
+        @foreach (var category in catITA)
+        {
+            <div class="col s12 m4">
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <img src="@category.CategoryProduct.Image" alt="@category.Name" />
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p>@category.Name</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
