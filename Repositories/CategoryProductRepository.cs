@@ -19,9 +19,9 @@ namespace LK2.Repositories
             return db.CategoryProductLanguages.FirstOrDefault(cpl => cpl.CategoryProductID.Equals(categoryProductID));
         }
 
-        public List<CategoryProductLanguage> GetList()
+        public List<CategoryProductLanguage> GetList(int languageID)
         {
-            return db.CategoryProductLanguages.Include(q => q.CategoryProduct).OrderBy(cpl => cpl.CategoryProduct.Position).ToList();
+            return db.CategoryProductLanguages.Include(q => q.CategoryProduct).Where(q => q.LanguageID.Equals(languageID)).OrderBy(cpl => cpl.CategoryProduct.Position).ToList();
         }
     }
 }

@@ -18,3 +18,7 @@ main {
 select {
     display:block;
 }
+
+.hidden {
+    display:none;
+}

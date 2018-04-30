@@ -10,31 +10,148 @@
 @{
     var categories = ViewBag.Categories as List<CategoryProductLanguage>;
     var products = ViewBag.Products as List<ProductLanguage>;
-    // ITA
-    var catITA = categories.Where(q => q.LanguageID.Equals(1)).ToList();
-    var prodITA = products.Where(q => q.LanguageID.Equals(1)).ToList();
-    // ENG
-    var catENG = categories.Where(q => q.LanguageID.Equals(2)).ToList();
-    var prodENG = products.Where(q => q.LanguageID.Equals(2)).ToList();
 }
-<br><br>
-<h2 class="header center black-text">PROCEDI CON LA SELEZIONE</h2>
-<div class="section">
-    <div class="row">
-        @foreach (var category in catITA)
+<nav>
+    <div class="nav-wrapper">
+        <div class="col s12 center-align breadcrumbs">
+            <a href="#!" class="breadcrumb">1. Selezione</a>
+        </div>
+    </div>
+</nav>
+<div class="section step0">
+    <h2 class="header center black-text">SELEZIONA IL PRODOTTO</h2>
+    <div class="row ">
+        @foreach (var category in categories)
         {
-            <div class="col s12 m4">
-                <div class="card horizontal">
-                    <div class="card-image">
-                        <img src="@category.CategoryProduct.Image" alt="@category.Name" />
-                    </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p>@category.Name</p>
+            <a href="javascript:;" data-content="cat@(category.CategoryProductID)">
+                <div class="col s12 m4">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img height="115" src="@category.CategoryProduct.Image" />
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h4>@category.Name</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         }
     </div>
 </div>
+
+@foreach (var category in categories)
+{
+<div class="section step1 hidden" id="cat@(category.CategoryProductID)">
+    <h2 class="header center black-text">SELEZIONA IL PRODOTTO</h2>
+    <a class="waves-effect btn-small go-back"><i class="material-icons left">home</i>INDIETRO</a>
+    <div class="row">
+        @foreach (var product in products.Where(p => p.Product.CategoryProductID.Equals(category.CategoryProductID)))
+        {
+            <a href="javascript:;" data-content="prod@(product.ProductID)">
+                <div class="col s12 m4">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img height="115" src="@product.Product.Image" />
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>@product.Name</p>
+                                <p>@product.Product.Price &euro;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+}
+
+@foreach (var product in products)
+{
+<div class="section step2 hidden" id="prod@(product.ProductID)">
+    <h2 class="header center black-text">CONFERMA IL PRODOTTO</h2>
+
+    <a class="waves-effect btn-small go-back"><i class="material-icons left">home</i>INDIETRO</a>
+    <div class="row">
+        <div class="col s12 m6">
+            <img src="@product.Product.Image" width="100%" />
+        </div>
+        <div class="col s12 m6">
+            <h1>@product.Name</h1>
+            <p>@product.Description</p>
+        </div>
+        <a class="waves-effect waves-light btn-large disabled confirm"><i class="material-icons left">shopping_cart</i>@product.Product.Price &euro; CONFERMA</a>
+    </div>
+</div>
+}
+
+<div class="section step3 hidden">
+    <h2 class="header center black-text">EROGAZIONE DEL PRODOTTO</h2>
+    <div class="col s12">
+        <div class="progress">
+            <div class="determinate" style="width: 0%"></div>
+        </div>
+    </div>
+</div>
+
+@section js {
+    <script type="text/javascript">
+        $(function () {
+            // SELEZIONE CATEGORIA
+            $('.step0 a').click(function () {
+                var categoryID = $(this).attr('data-content');
+                $('.step0').addClass('hidden');
+                $('#' + categoryID).removeClass('hidden');
+            });
+            // SELEZIONE PRODOTTO
+            $('.step1 a').click(function () {
+                var productID = $(this).attr('data-content');
+                $('.step1').addClass('hidden');
+                $('#' + productID).removeClass('hidden');
+                $('.breadcrumbs').append('<a href="#!" class="breadcrumb">2. Conferma</a>');
+                setTimeout(function () {
+                    $('.disabled').removeClass('disabled'); }, 1000);
+            });
+            // CONFERMA PRODOTTO
+            $('.confirm').click(function () {
+                $('.breadcrumbs').append('<a href="#!" class="breadcrumb">3. Erogazione</a>');
+                $('.step2').addClass('hidden');
+                $('.step3').removeClass('hidden');
+                progressBar(0);
+                setTimeout(function () { reset(); }, 5000);
+             });
+
+            $('.go-back').click(function () {
+                reset();
+            });
+        });
+
+        function reset() {
+            $('.step0').removeClass('hidden');
+            if (!$('.step1').hasClass('hidden'))
+                $('.step1').addClass('hidden');
+            if (!$('.step2').hasClass('hidden'))
+                $('.step2').addClass('hidden');
+            if (!$('.step3').hasClass('hidden'))
+                $('.step3').addClass('hidden');
+            $('.confirm').addClass('disabled');
+            $('.determinate').width('0%');
+            $('.breadcrumbs').html('').append('<a href="#!" class="breadcrumb">1. Selezione</a>');
+        }
+
+        function progressBar(width) {
+            if (width == 100)
+                return;
+            else {
+                width += 1;
+                console.log(width);
+                $('.determinate').width(width + '%');
+                setTimeout(function () { progressBar(width); }, 40);
+            }
+
+        }
+    </script>
+}

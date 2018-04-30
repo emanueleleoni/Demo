@@ -10,6 +10,6 @@ namespace LK2.Repositories
     {
         CategoryProductLanguage GetCategory(Guid categoryProductID);
 
-        List<CategoryProductLanguage> GetList();
+        List<CategoryProductLanguage> GetList(int languageID);
     }
 }
