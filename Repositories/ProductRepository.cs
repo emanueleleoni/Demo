@@ -20,9 +20,16 @@ namespace LK2.Repositories
             return db.ProductLanguages.Include(q => q.Product).Where(q => q.LanguageID.Equals(languageID)).OrderBy(pl => pl.Product.Position).ToList();
         }
 
-        public ProductLanguage GetProduct(Guid productID)
+        public ProductLanguage GetProduct(int productID)
         {
             return db.ProductLanguages.FirstOrDefault(pl => pl.ProductID.Equals(productID));
+        }
+
+        public void UpdateProduct(int productID, double price){
+            var product = db.Products.FirstOrDefault(p => p.ProductID.Equals(productID));
+            product.Price = price;
+
+            db.SaveChanges();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace LK2.Repositories
         public CategoryProductRepository(DatabaseContext databaseContext){
             db = databaseContext;
         }
-        public CategoryProductLanguage GetCategory(Guid categoryProductID)
+        public CategoryProductLanguage GetCategory(int categoryProductID)
         {
             return db.CategoryProductLanguages.FirstOrDefault(cpl => cpl.CategoryProductID.Equals(categoryProductID));
         }

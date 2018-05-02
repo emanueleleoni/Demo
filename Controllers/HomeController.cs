@@ -9,6 +9,8 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using LK2.Models;
 
 namespace LK2.Controllers
 {
@@ -76,7 +78,7 @@ namespace LK2.Controllers
             }
         }
 
-        public async Task CallTestService()
+        public async Task<string> Ping()
         {
             UTF8Encoding enc = new UTF8Encoding();
             string data = "{ \"method\" : \"ping\", \"id\" : \"d70f2bbb - 4540 - 4876 - a665 - adae32d7fa53\" }";
@@ -96,6 +98,8 @@ namespace LK2.Controllers
             Stream receiveStream = wr.GetResponseStream();
             StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
             string content = reader.ReadToEnd();
+
+            return JsonConvert.DeserializeObject<JsonRpc>(content).result;
         }
 
         [HttpPost]

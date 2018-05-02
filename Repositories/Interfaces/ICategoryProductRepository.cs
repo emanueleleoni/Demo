@@ -8,7 +8,7 @@ namespace LK2.Repositories
 {
     public interface ICategoryProductRepository
     {
-        CategoryProductLanguage GetCategory(Guid categoryProductID);
+        CategoryProductLanguage GetCategory(int categoryProductID);
 
         List<CategoryProductLanguage> GetList(int languageID);
     }
