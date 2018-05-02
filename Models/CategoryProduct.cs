@@ -16,11 +16,13 @@ namespace LK2.Models
         public int Position { get; set; }
 
         public virtual IEnumerable<Product> Products { get; set; }
-        public virtual IEnumerable<CategoryProductLanguage> GetCategoryProductLanguages { get; set; }
+        public virtual IEnumerable<CategoryProductLanguage> CategoryProductLanguages { get; set; }
+        public virtual IEnumerable<ProductCategoryProductPosition> ProductCategoryProductPositions { get; set; }
 
         public CategoryProduct() {
             this.Products = new HashSet<Product>();
-            this.GetCategoryProductLanguages = new HashSet<CategoryProductLanguage>();
+            this.CategoryProductLanguages = new HashSet<CategoryProductLanguage>();
+            this.ProductCategoryProductPositions = new HashSet<ProductCategoryProductPosition>();
         }
     }
 }

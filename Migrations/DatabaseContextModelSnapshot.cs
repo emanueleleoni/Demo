@@ -13,7 +13,7 @@ namespace LK2.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.1.1");
+                .HasAnnotation("ProductVersion", "1.1.5");
 
             modelBuilder.Entity("LK2.Models.CategoryProduct", b =>
                 {
@@ -67,8 +67,6 @@ namespace LK2.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<int>("Position");
-
                     b.Property<double>("Price");
 
                     b.HasKey("ProductID");
@@ -76,6 +74,21 @@ namespace LK2.Migrations
                     b.HasIndex("CategoryProductID");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("LK2.Models.ProductCategoryProductPosition", b =>
+                {
+                    b.Property<int>("ProductID");
+
+                    b.Property<int>("CategoryProductID");
+
+                    b.Property<int>("Position");
+
+                    b.HasKey("ProductID", "CategoryProductID", "Position");
+
+                    b.HasAlternateKey("CategoryProductID", "Position", "ProductID");
+
+                    b.ToTable("ProductCategoryProductPositions");
                 });
 
             modelBuilder.Entity("LK2.Models.ProductLanguage", b =>
@@ -98,7 +111,7 @@ namespace LK2.Migrations
             modelBuilder.Entity("LK2.Models.CategoryProductLanguage", b =>
                 {
                     b.HasOne("LK2.Models.CategoryProduct", "CategoryProduct")
-                        .WithMany("GetCategoryProductLanguages")
+                        .WithMany("CategoryProductLanguages")
                         .HasForeignKey("CategoryProductID")
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -113,6 +126,19 @@ namespace LK2.Migrations
                     b.HasOne("LK2.Models.CategoryProduct", "CategoryProduct")
                         .WithMany("Products")
                         .HasForeignKey("CategoryProductID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LK2.Models.ProductCategoryProductPosition", b =>
+                {
+                    b.HasOne("LK2.Models.CategoryProduct", "CategoryProduct")
+                        .WithMany("ProductCategoryProductPositions")
+                        .HasForeignKey("CategoryProductID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LK2.Models.Product", "Product")
+                        .WithMany("ProductCategoryProductPositions")
+                        .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

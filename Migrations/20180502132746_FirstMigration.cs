@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LK2.Migrations
 {
-    public partial class MyFirstMigration : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,7 +44,6 @@ namespace LK2.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CategoryProductID = table.Column<int>(nullable: false),
                     Image = table.Column<string>(nullable: true),
-                    Position = table.Column<int>(nullable: false),
                     Price = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
@@ -80,6 +79,32 @@ namespace LK2.Migrations
                         column: x => x.LanguageID,
                         principalTable: "Languages",
                         principalColumn: "LanguageID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductCategoryProductPositions",
+                columns: table => new
+                {
+                    ProductID = table.Column<int>(nullable: false),
+                    CategoryProductID = table.Column<int>(nullable: false),
+                    Position = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductCategoryProductPositions", x => new { x.ProductID, x.CategoryProductID, x.Position });
+                    table.UniqueConstraint("AK_ProductCategoryProductPositions_CategoryProductID_Position_ProductID", x => new { x.CategoryProductID, x.Position, x.ProductID });
+                    table.ForeignKey(
+                        name: "FK_ProductCategoryProductPositions_CategoryProducts_CategoryProductID",
+                        column: x => x.CategoryProductID,
+                        principalTable: "CategoryProducts",
+                        principalColumn: "CategoryProductID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductCategoryProductPositions_Products_ProductID",
+                        column: x => x.ProductID,
+                        principalTable: "Products",
+                        principalColumn: "ProductID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -125,6 +150,9 @@ namespace LK2.Migrations
         {
             migrationBuilder.DropTable(
                 name: "CategoryProductLanguages");
+
+            migrationBuilder.DropTable(
+                name: "ProductCategoryProductPositions");
 
             migrationBuilder.DropTable(
                 name: "ProductLanguages");

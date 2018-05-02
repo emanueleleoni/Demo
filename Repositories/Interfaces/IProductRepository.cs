@@ -1,4 +1,5 @@
 ﻿using LK2.Models;
+using LK2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,14 @@ namespace LK2.Repositories
     {
         ProductLanguage GetProduct(int productID);
 
-        List<ProductLanguage> GetList(int languageID);
+        List<ProductViewModel> GetList(int languageID);
 
-        void UpdateProduct(int productID, double price);
+        void UpdateProduct(int productID, int categoryID, double price);
+
+        void DeleteProduct(int categoryProductID, int productID, int position);
+
+        NewProductViewModel AddProduct(int categoryProductID);
+
+        void AddProductToCategory(int categoryProductID, int productID, int position);
     }
 }

@@ -84,10 +84,8 @@ namespace LK2
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                SeedData.Initialize(app);
             }
-
-            // Enables automatic execution of Entity Framework migrations at application startup.
-            db.Database.Migrate();
 
             // Enable static files (assets to be served etc.)
             app.UseStaticFiles();

@@ -58,7 +58,30 @@ namespace lk2_demo.Controllers
 
         [HttpPost]
         public string Update(int categoryProductID, int productID, double price){
-            repoProd.UpdateProduct(productID, price);
+            repoProd.UpdateProduct(productID, categoryProductID, price);
+
+            return "ok";
+        }
+
+        [HttpPost]
+        public string Delete(int categoryProductID, int productID, int position) {
+            repoProd.DeleteProduct(categoryProductID, productID, position);
+
+            return "ok";
+        }
+
+        [HttpPost]
+        public IActionResult Add(int categoryProductID){
+            var product = repoProd.AddProduct(categoryProductID);    
+
+            return PartialView("_AddProduct", product);
+        }
+
+
+        [HttpPost]
+        public string Create(int categoryProductID, int productID, int position)
+        {
+            repoProd.AddProductToCategory(categoryProductID, productID, position);
 
             return "ok";
         }

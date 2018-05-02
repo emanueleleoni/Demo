@@ -1,0 +1,16 @@
+@using LK2.ViewModels
+
+@model NewProductViewModel
+
+<tr id="@Model.categoryID" class="addProduct">
+    <td><input type="text" name="position" value="@Model.position" /></td>
+    <td><select name="productID" class="ddlProducts" onchange="UpdatePrice()">
+        @foreach(var product in Model.productsAvailable){
+         <option value="@product.productID" price="@product.price">@product.name</option>
+        }
+        </select></td>
+    <td><input type="text" name="price" /></td>
+    <td>
+        <a href="javascript:;" onclick="AddProduct()"><i class="material-icons">add</i></a>
+    </td>
+</tr>

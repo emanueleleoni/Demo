@@ -12,6 +12,7 @@ namespace LK2.Models
         public DbSet<ProductLanguage> ProductLanguages { get; set; }
         public DbSet<CategoryProductLanguage> CategoryProductLanguages { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<ProductCategoryProductPosition> ProductCategoryProductPositions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -43,13 +44,27 @@ namespace LK2.Models
 
             modelBuilder.Entity<CategoryProductLanguage>()
                 .HasOne(cpl => cpl.CategoryProduct)
-                .WithMany(cp => cp.GetCategoryProductLanguages)
+                .WithMany(cp => cp.CategoryProductLanguages)
                 .HasForeignKey(cpl => cpl.CategoryProductID);
 
             modelBuilder.Entity<CategoryProductLanguage>()
                 .HasOne(cpl => cpl.Language)
                 .WithMany(l => l.CategoryProductLanguages)
                 .HasForeignKey(cpl => cpl.LanguageID);
+
+            // Una categoria prodotti ha diversi prodotti in posizioni differenti
+            modelBuilder.Entity<ProductCategoryProductPosition>()
+                .HasKey(pcp => new { pcp.ProductID, pcp.CategoryProductID, pcp.Position });
+
+            modelBuilder.Entity<ProductCategoryProductPosition>()
+                .HasOne(pcp => pcp.CategoryProduct)
+                .WithMany(cp => cp.ProductCategoryProductPositions)
+                .HasForeignKey(pcp => pcp.CategoryProductID);
+
+            modelBuilder.Entity<ProductCategoryProductPosition>()
+                .HasOne(pcp => pcp.Product)
+                .WithMany(p => p.ProductCategoryProductPositions)
+                .HasForeignKey(pcp => pcp.ProductID);
         }
     }
 }

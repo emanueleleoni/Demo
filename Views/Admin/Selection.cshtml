@@ -1,12 +1,13 @@
-
 @{
     Layout = "_Admin";
 }
 
 @using LK2.Models
+@using LK2.ViewModels
+
 @{
     var categories = ViewBag.Categories as List<CategoryProductLanguage>;
-    var products = ViewBag.Products as List<ProductLanguage>;
+    var products = ViewBag.Products as List<ProductViewModel>;
 }
 
 <div class="section">
@@ -14,56 +15,80 @@
 
     <div class="row">
         <ul class="collapsible">
-            @foreach(var category in categories) {
-            <!-- LISTA CATEGORIE PRODOTTI -->
-            <li>
-                <div class="collapsible-header"><i class="material-icons">folder_open</i>@category.Name (@products.Where(p => p.Product.CategoryProductID.Equals(category.CategoryProductID)).Count())</div>
-                <div class="collapsible-body grey lighten-5">
-                    <!-- LISTA PRODOTTI DELLA CATEGORIA -->
-                    <table class="striped">
-                        <thead>
-                            <tr>
-                                <th>Posizione</th>
-                                <th>Nome</th>
-                                <th>Prezzo &euro;</th>
-                                <th>Opzioni</th>
-                            </tr>
-                        </thead>
+            @foreach (var category in categories)
+            {
+                <!-- LISTA CATEGORIE PRODOTTI -->
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">folder_open</i>@category.Name (@products.Where(p => p.categoryID.Equals(category.CategoryProductID)).Count())</div>
+                    <div class="collapsible-body grey lighten-5">
+                        <!-- LISTA PRODOTTI DELLA CATEGORIA -->
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>Posizione</th>
+                                    <th>Nome</th>
+                                    <th>Prezzo &euro;</th>
+                                    <th>Opzioni</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            @foreach(var product in products.Where(p => p.Product.CategoryProductID.Equals(category.CategoryProductID)).OrderBy(p => p.Product.Position).ToList()) {
-                            <tr>
-                                <td>@product.Product.Position</td>
-                                <td>@product.Name</td>
-                                <td><input type="text" readonly name="price" class="price" id="@category.CategoryProductID-@product.ProductID" value="@product.Product.Price" /></td>
-                                <td>
-                                    <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
-                                    <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            }
-                        </tbody>
-                    </table>
-                    <div class="center-align">
-                        <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
+                            <tbody>
+                                @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(p => p.position).ToList())
+                                {
+                                    <tr id="@category.CategoryProductID-@product.productID-@product.position">
+                                        <td>@product.position</td>
+                                        <td>@product.name</td>
+                                        <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
+                                        <td>
+                                            <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
+                                            <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="center-align">
+                                            <a class="btn-floating btn-large waves-effect waves-light green new" id="@category.CategoryProductID"><i class="material-icons">add</i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
-                </div>
-            </li>
+                </li>
             }
         </ul>
+    </div>
+</div>
+
+<!-- LOADER -->
+<div class="valign-wrapper white hidden loader" style="position:fixed; top:0; right:0; bottom:0; left:0; opacity:0.7;">
+    <div class="preloader-wrapper big active" style="margin:0 auto;">
+        <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
     </div>
 </div>
 
 @section js {
     <script type="text/javascript">
         $(document).ready(function () {
+            // ACCORDION CATEGORIE
             $('.collapsible').collapsible();
-
+            // UPDATE PRODUCT
             $('.edit').click(function () {
                 if ($(this).hasClass('save')) {
+                    $('.loader').toggleClass('hidden');
                     var $price = $(this).parents('tr').find('.price');
-                    var catProd = $price.attr('id');
-                    var split = catProd.split("-"); 
+                    var catProd = $(this).parents('tr').attr('id');
+                    var split = catProd.split("-");
                     var categoryID = split[0];
                     var productID = split[1];
 
@@ -74,7 +99,7 @@
                             price: $price.val()
                         },
                         function (data, status) {
-                            alert("Data: " + data + "\nStatus: " + status);
+                            $('.loader').toggleClass('hidden');
                         });
                 }
                 else {
@@ -83,6 +108,68 @@
                     $(this).parents('tr').find('.price').attr("readonly", false);
                 }
             });
+            // DELETE PRODUCT
+            $('.delete').click(function () {
+                var result = confirm("Vuoi cancellare la selezione?");
+                if (result) {
+                    $('.loader').toggleClass('hidden');
+                    var catProd = $(this).parents('tr').attr('id');
+                    $(this).parents('tr').remove();
+                    var split = catProd.split("-");
+                    var categoryID = split[0];
+                    var productID = split[1];
+                    var position = split[2];
+                    $.post("/Admin/Delete",
+                        {
+                            categoryProductID: categoryID,
+                            productID: productID,
+                            position: position
+                        },
+                        function (data, status) {
+                            $('.loader').toggleClass('hidden');
+                        });
+
+                }
+            });
+            // ADD PRODUCT
+            $('.new').click(function () {
+                var $this = $(this);
+                $('.loader').toggleClass('hidden');
+                var categoryID = $(this).attr('id');
+                $.post("/Admin/Add",
+                    {
+                        categoryProductID: categoryID
+                    },
+                    function (data, status) {
+                        $('.loader').toggleClass('hidden');
+                        $(data).insertBefore($this.parents('tr'));
+                        $this.remove();
+                        UpdatePrice();
+                    });
+            });
         });
+
+        function UpdatePrice() {
+            var product = $('.ddlProducts :selected');
+            product.parents('tr').find(('input[name="price"]')).val(product.attr('price'));
+        }
+
+        function AddProduct() {
+            var $tr = $('tr.addProduct');
+            var categoryID = $tr.attr('id');
+            var position = $('input[name="position"]').val();
+            var productID = $('select[name="productID"] :selected').val();
+            $('.loader').toggleClass('hidden');
+            $.post("/Admin/Create",
+                {
+                    categoryProductID: categoryID,
+                    productID: productID,
+                    position: position
+                },
+                function (data, status) {
+                    location.reload();
+                    $('.loader').toggleClass('hidden');
+                 });
+        }
     </script>
 }
