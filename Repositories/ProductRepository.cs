@@ -32,7 +32,8 @@ namespace LK2.Repositories
                                             name = z.Name,
                                             position = x.Position,
                                             price = y.Price,
-                                            productID = y.ProductID
+                                            productID = y.ProductID,
+                                            selection = x.Selection
                                          }).ToList();
 
             return collection;

@@ -11,11 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using LK2.Models;
+using Microsoft.Extensions.Options;
 
 namespace LK2.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly JsonRPC _jsonRPC;
         private readonly IStringLocalizer<HomeController> _localizer;
         /// <summary>
         /// Our Repostory implementation.
@@ -29,12 +31,14 @@ namespace LK2.Controllers
         /// <param name="productRepository"></param>
         public HomeController(IStringLocalizer<HomeController> localizer,
                               ICategoryProductRepository categoryProductRepository,
-                              IProductRepository productRepository)
+                              IProductRepository productRepository,
+                              IOptions<JsonRPC> jsonRPC)
         {
             _localizer = localizer;
 
             repoCat = categoryProductRepository;
             repoProd = productRepository;
+            _jsonRPC = jsonRPC.Value;
         }
 
         /// <summary>
@@ -78,13 +82,38 @@ namespace LK2.Controllers
             }
         }
 
-        public async Task<string> Ping()
+        public async Task<string> Credit()
         {
             UTF8Encoding enc = new UTF8Encoding();
-            string data = "{ \"method\" : \"ping\", \"id\" : \"d70f2bbb - 4540 - 4876 - a665 - adae32d7fa53\" }";
+            string data = "{ \"method\" : \"" + _jsonRPC.Credit + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
 
             //Create request
-            WebRequest request = WebRequest.Create("http://34.241.55.104:8080");
+            WebRequest request = WebRequest.Create(_jsonRPC.Server);
+            request.Method = "POST";
+            request.ContentType = "application/json";
+
+            //Set data in request
+            Stream dataStream = await request.GetRequestStreamAsync();
+            dataStream.Write(enc.GetBytes(data), 0, data.Length);
+
+
+            //Get the response
+            WebResponse wr = await request.GetResponseAsync();
+            Stream receiveStream = wr.GetResponseStream();
+            StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
+            string content = reader.ReadToEnd();
+
+            return JsonConvert.DeserializeObject<JsonRpc>(content).result;
+        }
+
+        [HttpPost]
+        public async Task<string> Erogate(int selection)
+        {
+            UTF8Encoding enc = new UTF8Encoding();
+            string data = "{ \"params\": ["+ selection + "], \"method\" : \"" + _jsonRPC.Erogate + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
+
+            //Create request
+            WebRequest request = WebRequest.Create(_jsonRPC.Server);
             request.Method = "POST";
             request.ContentType = "application/json";
 

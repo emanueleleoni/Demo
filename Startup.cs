@@ -39,6 +39,7 @@ namespace LK2
         {
             // Add framework services.
             services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.Configure<JsonRPC>(Configuration.GetSection("JsonRPC"));
             services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
 
             services.Configure<RequestLocalizationOptions>(options =>

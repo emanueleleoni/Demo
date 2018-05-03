@@ -15,5 +15,6 @@ namespace LK2.ViewModels
         public string image { get; set; }
         public int position { get; set; }
         public double price { get; set; }
+        public int selection { get; set; }
     }
 }
