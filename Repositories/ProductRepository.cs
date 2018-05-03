@@ -44,9 +44,13 @@ namespace LK2.Repositories
             return db.ProductLanguages.FirstOrDefault(pl => pl.ProductID.Equals(productID));
         }
 
-        public void UpdateProduct(int productID, int categoryProductID, double price){
+        public void UpdateProduct(int productID, int categoryProductID, double price, int selection, int position){
             var product = db.Products.FirstOrDefault(p => p.ProductID.Equals(productID));
             product.Price = price;
+            var productCategory = db.ProductCategoryProductPositions.FirstOrDefault(pcp => pcp.ProductID.Equals(productID) &&
+                                                                                           pcp.CategoryProductID.Equals(pcp.CategoryProductID) &&
+                                                                                           pcp.Position.Equals(position));
+            productCategory.Selection = selection;
 
             db.SaveChanges();
         }
@@ -76,11 +80,12 @@ namespace LK2.Repositories
             return products.Where(p => p.categoryID.Equals(categoryProductID)).OrderByDescending(p => p.position).FirstOrDefault().position;
         }
 
-        public void AddProductToCategory(int categoryProductID, int productID, int position){
+        public void AddProductToCategory(int categoryProductID, int productID, int position, int selection){
             db.ProductCategoryProductPositions.Add(new ProductCategoryProductPosition { 
                 CategoryProductID = categoryProductID,
                 ProductID = productID,
-                Position = position
+                Position = position,
+                Selection = selection
             });
 
             db.SaveChanges();

@@ -4,12 +4,16 @@
 
 <tr id="@Model.categoryID" class="addProduct">
     <td><input type="text" name="position" value="@Model.position" /></td>
-    <td><select name="productID" class="ddlProducts" onchange="UpdatePrice()">
-        @foreach(var product in Model.productsAvailable){
-         <option value="@product.productID" price="@product.price">@product.name</option>
-        }
-        </select></td>
+    <td>
+        <select name="productID" class="ddlProducts" onchange="UpdatePrice()">
+            @foreach (var product in Model.productsAvailable)
+            {
+                <option value="@product.productID" price="@product.price">@product.name</option>
+            }
+        </select>
+    </td>
     <td><input type="text" name="price" /></td>
+    <td><input type="text" name="newSelection" /></td>
     <td>
         <a href="javascript:;" onclick="AddProduct()"><i class="material-icons">add</i></a>
     </td>

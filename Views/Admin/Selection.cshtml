@@ -28,6 +28,7 @@
                                     <th>Posizione</th>
                                     <th>Nome</th>
                                     <th>Prezzo &euro;</th>
+                                    <th>Selezione</th>
                                     <th>Opzioni</th>
                                 </tr>
                             </thead>
@@ -35,15 +36,16 @@
                             <tbody>
                                 @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(p => p.position).ToList())
                                 {
-                                    <tr id="@category.CategoryProductID-@product.productID-@product.position">
-                                        <td>@product.position</td>
-                                        <td>@product.name</td>
-                                        <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
-                                        <td>
-                                            <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
-                                            <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
+                                <tr id="@category.CategoryProductID-@product.productID-@product.position">
+                                    <td>@product.position</td>
+                                    <td>@product.name</td>
+                                    <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
+                                    <td><input type="text" readonly name="selection" class="selection" value="@product.selection" /></td>
+                                    <td>
+                                        <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
+                                        <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
                                 }
                                 <tr>
                                     <td colspan="4">
@@ -87,16 +89,20 @@
                 if ($(this).hasClass('save')) {
                     $('.loader').toggleClass('hidden');
                     var $price = $(this).parents('tr').find('.price');
+                    var $selection = $(this).parents('tr').find('.selection');
                     var catProd = $(this).parents('tr').attr('id');
                     var split = catProd.split("-");
                     var categoryID = split[0];
                     var productID = split[1];
+                    var position = split[2];
 
                     $.post("/Admin/Update",
                         {
                             categoryProductID: categoryID,
                             productID: productID,
-                            price: $price.val()
+                            price: $price.val(),
+                            selection: $selection.val(),
+                            position: position
                         },
                         function (data, status) {
                             $('.loader').toggleClass('hidden');
@@ -106,6 +112,7 @@
                     $(this).find('.material-icons').text('save');
                     $(this).toggleClass("save", true);
                     $(this).parents('tr').find('.price').attr("readonly", false);
+                    $(this).parents('tr').find('.selection').attr("readonly", false);
                 }
             });
             // DELETE PRODUCT
@@ -159,12 +166,14 @@
             var categoryID = $tr.attr('id');
             var position = $('input[name="position"]').val();
             var productID = $('select[name="productID"] :selected').val();
+            var selection = $('input[name="newSelection"]').val();
             $('.loader').toggleClass('hidden');
             $.post("/Admin/Create",
                 {
                     categoryProductID: categoryID,
                     productID: productID,
-                    position: position
+                    position: position,
+                    selection: selection
                 },
                 function (data, status) {
                     location.reload();

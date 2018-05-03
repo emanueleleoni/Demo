@@ -57,8 +57,8 @@ namespace lk2_demo.Controllers
         }
 
         [HttpPost]
-        public string Update(int categoryProductID, int productID, double price){
-            repoProd.UpdateProduct(productID, categoryProductID, price);
+        public string Update(int categoryProductID, int productID, double price, int selection, int position){
+            repoProd.UpdateProduct(productID, categoryProductID, price, selection, position);
 
             return "ok";
         }
@@ -79,9 +79,9 @@ namespace lk2_demo.Controllers
 
 
         [HttpPost]
-        public string Create(int categoryProductID, int productID, int position)
+        public string Create(int categoryProductID, int productID, int position, int selection)
         {
-            repoProd.AddProductToCategory(categoryProductID, productID, position);
+            repoProd.AddProductToCategory(categoryProductID, productID, position, selection);
 
             return "ok";
         }
