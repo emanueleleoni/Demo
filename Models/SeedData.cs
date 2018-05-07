@@ -8,10 +8,12 @@ namespace LK2.Models
 {
     public static class SeedData
     {
-        public static void Initialize(IApplicationBuilder applicationBuilder)
+        public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (DatabaseContext context = applicationBuilder.ApplicationServices.GetRequiredService<DatabaseContext>())
+            using (var context = serviceProvider.GetRequiredService<DatabaseContext>())
             {
+                context.Database.EnsureCreated();
+
                 // Look for any movies.
                 if (context.CategoryProducts.Any())
                 {

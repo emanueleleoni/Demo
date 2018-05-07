@@ -19,20 +19,15 @@ namespace LK2
         /// <summary>
         /// Application configuration.
         /// </summary>
-        public IConfigurationRoot Configuration { get; set; }
+        public IConfiguration Configuration { get; }
 
         /// <summary>
         /// Configure application environment variables.
         /// </summary>
         /// <param name="env"></param>
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -62,11 +57,6 @@ namespace LK2
             {
                 services.AddDbContext<DatabaseContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             }
-            // Use MSSQL?
-            if (driver == "mssql")
-            {
-                services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            }
 
             // IoC bindings.
             services.AddScoped<ILanguageRepository, LanguageRepository>();
@@ -85,7 +75,6 @@ namespace LK2
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                SeedData.Initialize(app);
             }
 
             // Enable static files (assets to be served etc.)
