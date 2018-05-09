@@ -41,11 +41,15 @@ namespace lk2_demo.Controllers
             if (!string.IsNullOrEmpty(password))
             {
                 if (password.Equals("1234"))
-                    return RedirectToAction("Selection");
+                    return RedirectToAction("Report");
                 else
                     ViewBag.Error = "Password errata! Si prega di riprovare";
             }
 
+            return View();
+        }
+
+        public IActionResult Report(){
             return View();
         }
 
@@ -84,6 +88,12 @@ namespace lk2_demo.Controllers
             repoProd.AddProductToCategory(categoryProductID, productID, position, selection);
 
             return "ok";
+        }
+
+        public IActionResult Clone(string q){
+            ViewBag.Header = q;
+
+            return View();
         }
     }
 }

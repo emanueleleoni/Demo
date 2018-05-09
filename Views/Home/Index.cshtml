@@ -12,41 +12,26 @@
     var categories = ViewBag.Categories as List<CategoryProductLanguage>;
     var products = ViewBag.Products as List<ProductViewModel>;
 }
-<nav>
-    <div class="nav-wrapper">
-        <div class="col s12 center-align breadcrumbs">
-            <a href="#!" class="breadcrumb">1. Selezione</a>
-        </div>
-    </div>
-</nav>
+
 <div class="section step0">
-    <h2 class="header center black-text">SELEZIONA IL PRODOTTO</h2>
     <div class="row ">
-        @foreach (var category in categories)
-        {
-            <a href="javascript:;" data-content="cat@(category.CategoryProductID)">
-                <div class="col s12 m4">
-                    <div class="card horizontal">
-                        <div class="card-image">
-                            <img height="115" src="@category.CategoryProduct.Image" />
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p style="font-weight:bold; font-size:16px;">@category.Name</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        }
+        <div class="collection center-align">
+            @{ var index = 1; }
+            @foreach (var category in categories)
+            {
+                <a href="javascript:;" class="collection-item grey lighten-@index" data-content="cat@(category.CategoryProductID)">
+                    <p style="font-weight:bold; font-size:20px; color:black;">@category.Name</p>
+                </a>
+                index++;
+            }
+        </div>
     </div>
 </div>
 
 @foreach (var category in categories)
 {
     <div class="section step1 hidden" id="cat@(category.CategoryProductID)">
-        <h2 class="header center black-text">SELEZIONA IL PRODOTTO</h2>
-        <a class="waves-effect btn-small go-back"><i class="material-icons left">home</i>INDIETRO</a>
+        <a class="waves-effect btn-small go-home">INDIETRO</a>
         <div class="row">
             @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)))
             {
@@ -59,7 +44,7 @@
                             <div class="card-stacked">
                                 <div class="card-content">
                                     <p>@product.name</p>
-                                    <p>@product.price &euro;</p>
+                                    <p>@string.Format("{0:N2}", product.price) &euro;</p>
                                 </div>
                             </div>
                         </div>
@@ -73,40 +58,50 @@
 @foreach (var product in products)
 {
     <div class="section step2 hidden" id="prod@(product.productID)">
-        <h2 class="header center black-text">CONFERMA IL PRODOTTO</h2>
 
-        <a class="waves-effect btn-small go-back"><i class="material-icons left">home</i>INDIETRO</a>
-        <div class="row">
+        <a class="waves-effect btn-small go-home black">HOME </a> <a class="waves-effect btn-small go-back">INDIETRO</a>
+        <div class="row" style="margin-top:7px;">
             <div class="col s12 m6">
                 <img src="@product.image" width="100%" />
             </div>
             <div class="col s12 m6">
                 <h1>@product.name</h1>
-                <p>@product.description</p>
+                <p>@Html.Raw(product.description)</p>
+                @if (product.categoryID.Equals(1) || product.categoryID.Equals(2))
+                {
+                    <h3 class="center-align">SELEZIONA LO ZUCCHERO</h3>
+                    <div style="margin-bottom:50px;" id="slider-@product.productID" class="slider-pips"></div>
+                }
+                <a class="waves-effect waves-light btn-large disabled confirm" selection="@product.selection">CONFERMA @string.Format("{0:N2}", product.price) &euro;</a>
+
             </div>
-            <a class="waves-effect waves-light btn-large disabled confirm" selection="@product.selection"><i class="material-icons left">shopping_cart</i>@product.price &euro; CONFERMA</a>
         </div>
     </div>
 }
 
-<div class="section step3 hidden">
-    <h2 class="header center black-text">EROGAZIONE DEL PRODOTTO</h2>
-    <div class="col s12">
-        <div class="progress">
-            <div class="determinate" style="width: 0%"></div>
+    <div class="section step3 hidden">
+        <h2 class="header center black-text">EROGAZIONE IN CORSO</h2>
+        <div class="col s12">
+            <div class="progress">
+                <div class="determinate" style="width: 0%"></div>
+            </div>
         </div>
+        <video id="erogation" width="100%">
+            <source src="~/assets/videos/Countdown 5 Seconds HD.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
-</div>
 
 @section js {
     <script type="text/javascript">
         $(function () {
+            var categoryID;
             // CHECK PING
             checkCredit();
 
             // SELEZIONE CATEGORIA
             $('.step0 a').click(function () {
-                var categoryID = $(this).attr('data-content');
+                categoryID = $(this).attr('data-content');
                 $('.step0').addClass('hidden');
                 $('#' + categoryID).removeClass('hidden');
             });
@@ -115,23 +110,50 @@
                 var productID = $(this).attr('data-content');
                 $('.step1').addClass('hidden');
                 $('#' + productID).removeClass('hidden');
-                $('.breadcrumbs').append('<a href="#!" class="breadcrumb">2. Conferma</a>');
                 checkCredit();
             });
+
             // CONFERMA PRODOTTO
+            // SLIDE
+            var sliders = [$('.slider-pips').length - 1];
+
+            $('.slider-pips').each(function (i) {
+                var $id = $(this).attr('id');
+                sliders[i] = document.getElementById($id);
+
+                noUiSlider.create(sliders[i], {
+                    range: {
+                        min: 0,
+                        max: 6
+                    },
+                    start: 2,
+                    pips: {
+                        mode: 'values',
+                        values: [0, 1, 2, 3, 4, 5, 6],
+                        density: 100
+                    }
+                });
+            });
+
             $('.confirm').click(function () {
                 var selection = $(this).attr('selection');
                 $(this).remove();
-                $('.breadcrumbs').append('<a href="#!" class="breadcrumb">3. Erogazione</a>');
                 $('.step2').addClass('hidden');
                 $('.step3').removeClass('hidden');
                 erogateProduct(selection);
                 progressBar(0);
+                var myVideo = document.getElementById("erogation");
+                myVideo.play();
                 setTimeout(function () { reset(); }, 5000);
             });
 
-            $('.go-back').click(function () {
+            $('.go-home').click(function () {
                 reset();
+            });
+
+            $('.go-back').click(function () {
+                $('#' + categoryID).removeClass('hidden');
+                $('.step2:not(.hidden)').addClass('hidden');
             });
         });
 
@@ -142,7 +164,6 @@
             $('.step3:not(.hidden)').addClass('hidden');
             $('.confirm').addClass('disabled');
             $('.determinate').width('0%');
-            $('.breadcrumbs').html('').append('<a href="#!" class="breadcrumb">1. Selezione</a>');
         }
 
         function progressBar(width) {

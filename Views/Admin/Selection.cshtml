@@ -10,6 +10,20 @@
     var products = ViewBag.Products as List<ProductViewModel>;
 }
 
+<nav>
+    <div class="nav-wrapper">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/Admin/Report">Report</a></li>
+            <li><a class="active" href="/Admin/Selection">Lista prodotti</a></li>
+            <li><a href="/Admin/Clone?q=Test motori">Test motori</a></li>
+            <li><a href="/Admin/Clone?q=Sistemi di pagamento">Sistemi di pagamento</a></li>
+            <li><a href="/Admin/Clone?q=Gestione USB">Gestione USB</a></li>
+            <li><a href="/Admin/Clone?q=Impostazioni">Impostazioni</a></li>
+            <li><a href="/Admin/Clone?q=Ricette">Ricette</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="section">
     <h2 class="header center black-text">LISTA PRODOTTI</h2>
 
@@ -36,16 +50,16 @@
                             <tbody>
                                 @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(p => p.position).ToList())
                                 {
-                                <tr id="@category.CategoryProductID-@product.productID-@product.position">
-                                    <td>@product.position</td>
-                                    <td>@product.name</td>
-                                    <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
-                                    <td><input type="text" readonly name="selection" class="selection" value="@product.selection" /></td>
-                                    <td>
-                                        <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
-                                        <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
-                                    </td>
-                                </tr>
+                                    <tr id="@category.CategoryProductID-@product.productID-@product.position">
+                                        <td>@product.position</td>
+                                        <td>@product.name</td>
+                                        <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
+                                        <td><input type="text" readonly name="selection" class="selection" value="@product.selection" /></td>
+                                        <td>
+                                            <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
+                                            <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
                                 }
                                 <tr>
                                     <td colspan="4">
@@ -178,7 +192,7 @@
                 function (data, status) {
                     location.reload();
                     $('.loader').toggleClass('hidden');
-                 });
+                });
         }
     </script>
 }

@@ -64,7 +64,7 @@ namespace LK2
             services.AddScoped<ICategoryProductRepository, CategoryProductRepository>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, DatabaseContext db)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
 
