@@ -41,15 +41,11 @@ namespace lk2_demo.Controllers
             if (!string.IsNullOrEmpty(password))
             {
                 if (password.Equals("1234"))
-                    return RedirectToAction("Report");
+                    return RedirectToAction("Clone", new { q = "Report" });
                 else
                     ViewBag.Error = "Password errata! Si prega di riprovare";
             }
 
-            return View();
-        }
-
-        public IActionResult Report(){
             return View();
         }
 

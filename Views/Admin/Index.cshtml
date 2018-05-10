@@ -3,23 +3,156 @@
     Layout = "_Admin";
 }
 
-<div class="section">
-    <h2 class="header center black-text">INSERISCI LA PASSWORD PER ACCEDERE</h2>
+@*<div class="section">
+        <h2 class="header center white-text">INSERISCI LA PASSWORD PER ACCEDERE</h2>
 
-    <div class="row">
-        @using (Html.BeginForm(new { @class = "col s12 center-align" })) { 
-            <span class="red-text">@ViewBag.Error</span>
+        <div class="row">
+            @using (Html.BeginForm(new { @class = "col s12 center-align" })) {
+                <span class="red-text">@ViewBag.Error</span>
+                <div class="row">
+                    <div class="input-field">
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            }
+        </div>
+    </div>*@
+
+
+@*<div class="row">
+
+        <div class="col s6 offset-s3 z-depth-1 white" id="panell">
+            <h5 id="title" class="center-align">INSERIRE LA PASSWORD</h5>
+            @using (Html.BeginForm())
+            {
+                <div class="input-field" id="password">
+                    <input type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+
+                <a class="btn waves-effect waves-light col s12" id="loginbtn">Login</a>
+
+            }
+        </div>
+    </div>*@
+
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+        @using (Html.BeginForm())
+        {
             <div class="row">
-                <div class="input-field">
-                    <input id="password" name="password" type="password" class="validate">
+                <div class="input-field col s12 center">
+                    <p class="center login-form-text">Inserire la password per accedere</p>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-action-lock-outline prefix"></i>
+                    <input id="password" name="password" type="password">
                     <label for="password">Password</label>
                 </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">
-                Submit
-                <i class="material-icons right">send</i>
-            </button>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light col s12" type="submit" name="action">
+                        LOGIN
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 m6 l6">
+                </div>
+                <div class="input-field col s6 m6 l6">
+                </div>
+            </div>
         }
+    </div>
+
+</div>
+<div class="container">
+    <div id="showKeyboard" class="hidden" style="margin-left:140px;">
+        <ul id="keyboard">
+            <li class="symbol">1</li>
+            <li class="symbol">2</li>
+            <li class="symbol">3</li>
+            <li class="symbol">4</li>
+            <li class="symbol">5</li>
+            <li class="symbol">6</li>
+            <li class="symbol">7</li>
+            <li class="symbol">8</li>
+            <li class="symbol">9</li>
+            <li class="symbol">0</li>
+            <li class="symbol">-</li>
+            <li class="symbol">=</li>
+            <li class="delete lastitem">delete</li>
+            <li class="tab">tab</li>
+            <li class="letter">q</li>
+            <li class="letter">w</li>
+            <li class="letter">e</li>
+            <li class="letter">r</li>
+            <li class="letter">t</li>
+            <li class="letter">y</li>
+            <li class="letter">u</li>
+            <li class="letter">i</li>
+            <li class="letter">o</li>
+            <li class="letter">p</li>
+            <li class="symbol"><span class="off">[</span><span class="on">{</span></li>
+            <li class="symbol"><span class="off">]</span><span class="on">}</span></li>
+            <li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
+            <li class="capslock">caps lock</li>
+            <li class="letter">a</li>
+            <li class="letter">s</li>
+            <li class="letter">d</li>
+            <li class="letter">f</li>
+            <li class="letter">g</li>
+            <li class="letter">h</li>
+            <li class="letter">j</li>
+            <li class="letter">k</li>
+            <li class="letter">l</li>
+            <li class="symbol"><span class="off">;</span><span class="on">:</span></li>
+            <li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
+            <li class="return lastitem">return</li>
+            <li class="left-shift">shift</li>
+            <li class="letter">z</li>
+            <li class="letter">x</li>
+            <li class="letter">c</li>
+            <li class="letter">v</li>
+            <li class="letter">b</li>
+            <li class="letter">n</li>
+            <li class="letter">m</li>
+            <li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
+            <li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
+            <li class="symbol"><span class="off">/</span><span class="on">?</span></li>
+            <li class="right-shift lastitem">shift</li>
+            <li class="space lastitem">&nbsp;</li>
+        </ul>
     </div>
 </div>
 
+
+@section js {
+    <script type="text/javascript">
+        $(function () {
+            $('body').addClass('cyan').css('{ display: table-cell; vertical- align: middle; }');
+            $('#password').focusin(function () {
+                $('#showKeyboard').removeClass('hidden');
+            });
+
+            $('#keyboard li.symbol, #keyboard li.letter').click(function () {
+                $('#password').focus();
+                var content = $('#password').val();
+                $('#password').val(content + $(this).html());
+            });
+
+            $('#keyboard li.delete').click(function () {
+                var content = $('#password').val();
+                $('#password').val(content.substring(0, content.length - 1));
+            });
+        });
+    </script>
+}
