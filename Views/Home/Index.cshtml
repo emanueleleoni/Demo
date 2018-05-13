@@ -119,7 +119,6 @@
                     var productID = $(this).attr('data-content');
                     $('.step1').addClass('hidden');
                     $('#' + productID).removeClass('hidden');
-                    checkCredit();
                 });
 
                 // CONFERMA PRODOTTO
@@ -146,9 +145,10 @@
 
                 $('.confirm').click(function () {
                     var selection = $(this).attr('selection');
-                    $(this).remove();
+                    $(this).addClass('disabled');
                     $('.step2').addClass('hidden');
                     $('.step3').removeClass('hidden');
+                    $(this).removeClass('disabled');
                     erogateProduct(selection);
                     progressBar(0);
                     var myVideo = document.getElementById("erogation");
@@ -187,9 +187,16 @@
 
             function checkCredit() {
                 $.get("/Home/Credit", function (data, status) {
-                    if (data == 'pong')
+                    if (data == 'pong') {
+                        $('.creditHeader').removeClass('red-text').addClass('green-text');
                         $('.disabled').removeClass('disabled');
+                    } else {
+                        $('.creditHeader').removeClass('green-text').addClass('red-text');
+                        $('.disabled').addClass('disabled');
+                    }
                 });
+
+                setTimeout(function () { checkCredit(); }, 2000);
             }
 
             function erogateProduct(selection) {
