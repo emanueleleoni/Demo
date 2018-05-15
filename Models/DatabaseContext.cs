@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace LK2.Models
 {
@@ -65,6 +68,22 @@ namespace LK2.Models
                 .HasOne(pcp => pcp.Product)
                 .WithMany(p => p.ProductCategoryProductPositions)
                 .HasForeignKey(pcp => pcp.ProductID);
+        }
+    }
+
+    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<DatabaseContext>
+    {
+        public DatabaseContext CreateDbContext(string[] args)
+        {
+            Directory.SetCurrentDirectory(@"C:\Users\emanl\Documents\Pagita\lk2-master\lk2-master");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+            var builder = new DbContextOptionsBuilder<DatabaseContext>();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            builder.UseSqlite(connectionString);
+            return new DatabaseContext(builder.Options);
         }
     }
 }

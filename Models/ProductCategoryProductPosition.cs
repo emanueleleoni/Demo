@@ -20,6 +20,7 @@ namespace LK2.Models
         public int Position { get; set; }
 
         public int Selection { get; set; }
+        public int Quantity { get; set; }
 
         public virtual Product Product { get; set; }
         public virtual CategoryProduct CategoryProduct { get; set; }

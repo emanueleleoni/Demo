@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LK2.Migrations
 {
@@ -88,7 +88,9 @@ namespace LK2.Migrations
                 {
                     ProductID = table.Column<int>(nullable: false),
                     CategoryProductID = table.Column<int>(nullable: false),
-                    Position = table.Column<int>(nullable: false)
+                    Position = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    Selection = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

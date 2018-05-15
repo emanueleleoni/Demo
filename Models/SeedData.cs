@@ -262,154 +262,154 @@ namespace LK2.Models
                         ProductID = 1,
                         LanguageID = 1,
                         Name = "Caffè Espresso",
-                        Description = "Caffè Espresso"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 2,
                         LanguageID = 1,
                         Name = "Caffè Macchiato",
-                        Description = "Caffè Macchiato"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 3,
                         LanguageID = 1,
                         Name = "Caffè Lungo",
-                        Description = "Caffè Lungo"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 4,
                         LanguageID = 1,
                         Name = "Decaffeinato",
-                        Description = "Decaffeinato"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 5,
                         LanguageID = 1,
                         Name = "Cappuccino",
-                        Description = "Cappuccino"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 6,
                         LanguageID = 1,
                         Name = "Tè",
-                        Description = "Tè"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 7,
                         LanguageID = 1,
                         Name = "Cioccolata calda",
-                        Description = "Cioccolata calda"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 8,
                         LanguageID = 1,
                         Name = "Ginseng",
-                        Description = "Ginseng"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 9,
                         LanguageID = 1,
                         Name = "Latte",
-                        Description = "Latte"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 10,
                         LanguageID = 1,
                         Name = "Acqua Naturale",
-                        Description = "Acqua Naturale 50cl"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                    new ProductLanguage
                    {
                        ProductID = 11,
                        LanguageID = 1,
                        Name = "Acqua Frizzante",
-                       Description = "Acqua Frizzante 50cl"
+                       Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                    },
                     new ProductLanguage
                     {
                         ProductID = 12,
                         LanguageID = 1,
                         Name = "Coca Cola",
-                        Description = "Coca Cola 50cl"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 13,
                         LanguageID = 1,
                         Name = "Fanta",
-                        Description = "Fanta 50cl"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 14,
                         LanguageID = 1,
                         Name = "Chinotto",
-                        Description = "Chinotto 50cl"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 15,
                         LanguageID = 1,
                         Name = "KitKat",
-                        Description = "KitKat"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 16,
                         LanguageID = 1,
                         Name = "Mars",
-                        Description = "Mars"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 17,
                         LanguageID = 1,
                         Name = "M&M",
-                        Description = "M&M"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 18,
                         LanguageID = 1,
                         Name = "Twix",
-                        Description = "Twix"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 19,
                         LanguageID = 1,
                         Name = "Patatine Fritte",
-                        Description = "Patatine Fritte 50gr"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 20,
                         LanguageID = 1,
                         Name = "Fonzies",
-                        Description = "Fonzies"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 21,
                         LanguageID = 1,
                         Name = "Tuc",
-                        Description = "Tuc"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 22,
                         LanguageID = 1,
                         Name = "Taralli",
-                        Description = "Taralli"
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; ""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     }
                 );
 
@@ -420,35 +420,48 @@ namespace LK2.Models
                         ProductID = 1,
                         CategoryProductID = 1,
                         Position = 1,
-                        Selection = 1
+                        Selection = 1,
+                        Quantity = 3
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 2,
                         CategoryProductID = 1,
                         Position = 2,
-                        Selection = 2
+                        Selection = 2,
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 3,
                         CategoryProductID = 1,
                         Position = 3,
-                        Selection = 3
+                        Selection = 3,
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 4,
                         CategoryProductID = 1,
                         Position = 4,
-                        Selection = 4
+                        Selection = 4,
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 5,
                         CategoryProductID = 1,
                         Position = 5,
-                        Selection = 5
+                        Selection = 5,
+                        Quantity = 0
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 1,
+                        CategoryProductID = 1,
+                        Position = 6,
+                        Selection = 23,
+                        Quantity = 2
                     },
                     // Bevande calde
                     new ProductCategoryProductPosition
@@ -456,28 +469,32 @@ namespace LK2.Models
                         ProductID = 6,
                         CategoryProductID = 2,
                         Position = 1,
-                        Selection = 6
+                        Selection = 6,
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 7,
                         CategoryProductID = 2,
                         Position = 2,
-                        Selection = 7
+                        Selection = 7,
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 8,
                         CategoryProductID = 2,
                         Position = 3,
-                        Selection = 8
+                        Selection = 8,
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 9,
                         CategoryProductID = 2,
                         Position = 4,
-                        Selection = 9
+                        Selection = 9,
+                        Quantity = 0
                     },
                     // Bevande fredde
                     new ProductCategoryProductPosition
@@ -485,35 +502,48 @@ namespace LK2.Models
                         ProductID = 10,
                         CategoryProductID = 3,
                         Position = 1,
-                        Selection = 10
+                        Selection = 10,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 11,
                         CategoryProductID = 3,
                         Position = 2,
-                        Selection = 11
+                        Selection = 11,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 12,
                         CategoryProductID = 3,
                         Position = 3,
-                        Selection = 12
+                        Selection = 12,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 13,
                         CategoryProductID = 3,
                         Position = 4,
-                        Selection = 13
+                        Selection = 13,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 14,
                         CategoryProductID = 3,
                         Position = 5,
-                        Selection = 14
+                        Selection = 14,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 10,
+                        CategoryProductID = 3,
+                        Position = 6,
+                        Selection = 24,
+                        Quantity = 1
                     },
                     // Snack dolci
                     new ProductCategoryProductPosition
@@ -521,28 +551,32 @@ namespace LK2.Models
                         ProductID = 15,
                         CategoryProductID = 4,
                         Position = 1,
-                        Selection = 15
+                        Selection = 15,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 16,
                         CategoryProductID = 4,
                         Position = 2,
-                        Selection = 16
+                        Selection = 16,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 17,
                         CategoryProductID = 4,
                         Position = 3,
-                        Selection = 17
+                        Selection = 17,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 18,
                         CategoryProductID = 4,
                         Position = 4,
-                        Selection = 18
+                        Selection = 18,
+                        Quantity = 1
                     },
                     // Snack salati
                     new ProductCategoryProductPosition
@@ -550,28 +584,32 @@ namespace LK2.Models
                         ProductID = 19,
                         CategoryProductID = 5,
                         Position = 1,
-                        Selection = 19
+                        Selection = 19,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 20,
                         CategoryProductID = 5,
                         Position = 2,
-                        Selection = 20
+                        Selection = 20,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 21,
                         CategoryProductID = 5,
                         Position = 3,
-                        Selection = 21
+                        Selection = 21,
+                        Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 22,
                         CategoryProductID = 5,
                         Position = 4,
-                        Selection = 21
+                        Selection = 22,
+                        Quantity = 1
                     }
                 );
 
