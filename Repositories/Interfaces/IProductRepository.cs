@@ -20,5 +20,7 @@ namespace LK2.Repositories
         NewProductViewModel AddProduct(int categoryProductID);
 
         void AddProductToCategory(int categoryProductID, int productID, int position, int selection);
+
+        void UpdateQuantity(int selection);
     }
 }

@@ -121,14 +121,18 @@ namespace LK2.Controllers
             Stream dataStream = await request.GetRequestStreamAsync();
             dataStream.Write(enc.GetBytes(data), 0, data.Length);
 
-
             //Get the response
             WebResponse wr = await request.GetResponseAsync();
             Stream receiveStream = wr.GetResponseStream();
             StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
             string content = reader.ReadToEnd();
 
-            return JsonConvert.DeserializeObject<JsonRpc>(content).result;
+            var result = JsonConvert.DeserializeObject<JsonRpc>(content).result;
+
+            // SE RESULT è OK SCALA LA QUANTITA'
+            repoProd.UpdateQuantity(selection);        
+
+            return result;
         }
 
         [HttpPost]

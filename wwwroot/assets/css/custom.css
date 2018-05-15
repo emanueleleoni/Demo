@@ -92,7 +92,10 @@ padding:0;
 .collection .collection-item {
 line-height:13rem;
 }
-
+.esaurito {
+    opacity:0.5;
+    cursor:default;
+}
 /* LOGIN */
 #login-page {
     margin-top: 100px;

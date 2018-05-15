@@ -19,12 +19,12 @@
             @{ var index = 1; }
             @foreach (var category in categories)
             {
-            <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(/assets/images/bg-cat@(category.CategoryProductID).jpg); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
-                <p style="font-weight:bold; font-size:20px; color:black; text-transform:uppercase; text-indent:-9999px;">@category.Name</p>
-                <div style="position: absolute;  top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:40px; line-height:4rem; width:300px;" class="black">
-                    <span style="font-weight:bold; font-size:22px; color:white; text-transform:uppercase;">@category.Name</span>
-                </div>
-            </a>
+                <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(/assets/images/bg-cat@(category.CategoryProductID).jpg); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
+                    <p style="font-weight:bold; font-size:20px; color:black; text-transform:uppercase; text-indent:-9999px;">@category.Name</p>
+                    <div style="position: absolute;  top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:40px; line-height:4rem; width:300px;" class="black">
+                        <span style="font-weight:bold; font-size:22px; color:white; text-transform:uppercase;">@category.Name</span>
+                    </div>
+                </a>
                 index++;
             }
         </div>
@@ -39,14 +39,14 @@
                 <h2 class="center-align" style="text-transform:uppercase; font-weight:bold;">@category.Name</h2>
                 @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)))
                 {
-                    <a href="javascript:;" data-content="prod@(product.productID)">
+                    <a href="javascript:;" quantity="@product.quantity" class="@(product.quantity.Equals(0) ? "esaurito" : "")" data-content="prod@(product.productID)">
                         <div class="col s12 m3">
                             <div class="card">
                                 <div class="card-image">
                                     <img height="auto" src="@product.image" />
                                 </div>
                                 <div class="card-stacked">
-                                    <div class="card-content center-align"  style="height:115px;">
+                                    <div class="card-content center-align" style="height:115px;">
                                         <p style="color:black; font-weight:bold; text-transform:uppercase;">@product.name</p>
                                         <p style="color:black; font-weight:bold; text-transform:uppercase;">@string.Format("{0:N2}", product.price) &euro;</p>
                                     </div>
@@ -77,7 +77,7 @@
                         <h3 class="center-align">SELEZIONA LO ZUCCHERO</h3>
                         <div style="margin-bottom:50px;" id="slider-@product.productID" class="slider-pips"></div>
                     }
-                    <a class="waves-effect waves-light btn-large disabled confirm" selection="@product.selection">CONFERMA @string.Format("{0:N2}", product.price) &euro;</a>
+                    <a class="waves-effect waves-light btn-large disabled confirm" selection="@product.JsonSelection">CONFERMA @string.Format("{0:N2}", product.price) &euro;</a>
 
                 </div>
             </div>
@@ -101,112 +101,135 @@
     </div>
 </div>
 
-    @section js {
-        <script type="text/javascript">
-            $(function () {
-                var categoryID;
-                // CHECK PING
-                checkCredit();
+@section js {
+    <script type="text/javascript">
+        $(function () {
+            var categoryID;
+            // CHECK PING
+            checkCredit();
 
-                // SELEZIONE CATEGORIA
-                $('.step0 a').click(function () {
-                    categoryID = $(this).attr('data-content');
-                    $('.step0').addClass('hidden');
-                    $('#' + categoryID).removeClass('hidden');
-                });
-                // SELEZIONE PRODOTTO
-                $('.step1 a').click(function () {
-                    var productID = $(this).attr('data-content');
-                    $('.step1').addClass('hidden');
-                    $('#' + productID).removeClass('hidden');
-                });
+            // SELEZIONE CATEGORIA
+            $('.step0 a').click(function () {
+                categoryID = $(this).attr('data-content');
+                $('.step0').addClass('hidden');
+                $('#' + categoryID).removeClass('hidden');
+            });
+            // SELEZIONE PRODOTTO: se esaurito esce
+            $('.step1 a').click(function () {
+                if ($(this).hasClass('esaurito'))
+                    return false;
+                var productID = $(this).attr('data-content');
+                $('.step1').addClass('hidden');
+                $('#' + productID).removeClass('hidden');
+            });
 
-                // CONFERMA PRODOTTO
-                // SLIDE
-                var sliders = [$('.slider-pips').length - 1];
+            // CONFERMA PRODOTTO
+            // SLIDE
+            var sliders = [$('.slider-pips').length - 1];
 
-                $('.slider-pips').each(function (i) {
-                    var $id = $(this).attr('id');
-                    sliders[i] = document.getElementById($id);
+            $('.slider-pips').each(function (i) {
+                var $id = $(this).attr('id');
+                sliders[i] = document.getElementById($id);
 
-                    noUiSlider.create(sliders[i], {
-                        range: {
-                            min: 0,
-                            max: 6
-                        },
-                        start: 2,
-                        pips: {
-                            mode: 'values',
-                            values: [0, 1, 2, 3, 4, 5, 6],
-                            density: 100
-                        }
-                    });
-                });
-
-                $('.confirm').click(function () {
-                    var selection = $(this).attr('selection');
-                    $(this).addClass('disabled');
-                    $('.step2').addClass('hidden');
-                    $('.step3').removeClass('hidden');
-                    $(this).removeClass('disabled');
-                    erogateProduct(selection);
-                    progressBar(0);
-                    var myVideo = document.getElementById("erogation");
-                    myVideo.play();
-                    setTimeout(function () { reset(); }, 5000);
-                });
-
-                $('.go-home').click(function () {
-                    reset();
-                });
-
-                $('.go-back').click(function () {
-                    $('#' + categoryID).removeClass('hidden');
-                    $('.step2:not(.hidden)').addClass('hidden');
+                noUiSlider.create(sliders[i], {
+                    range: {
+                        min: 0,
+                        max: 6
+                    },
+                    start: 2,
+                    pips: {
+                        mode: 'values',
+                        values: [0, 1, 2, 3, 4, 5, 6],
+                        density: 100
+                    }
                 });
             });
 
-            function reset() {
-                $('.step0').removeClass('hidden');
-                $('.step1:not(.hidden)').addClass('hidden');
-                $('.step2:not(.hidden)').addClass('hidden');
-                $('.step3:not(.hidden)').addClass('hidden');
-                $('.confirm').addClass('disabled');
-                $('.determinate').width('0%');
-            }
+            $('.confirm').click(function () {
+                var available = 0;
+                var selection = $(this).attr('selection');
+                var obj = JSON.parse(selection);
+                var i = 0;
+                while ((i < obj.length) && (available == 0)) { 
+                    if (obj[i].quantity > 0) {
+                        available = obj[i].selection;
+                        obj[i].quantity--;
 
-            function progressBar(width) {
-                if (width == 100)
-                    return;
-                else {
-                    width += 1;
-                    $('.determinate').width(width + '%');
-                    setTimeout(function () { progressBar(width); }, 40);
-                }
-            }
-
-            function checkCredit() {
-                $.get("/Home/Credit", function (data, status) {
-                    if (data == 'pong') {
-                        $('.creditHeader').removeClass('red-text').addClass('green-text');
-                        $('.disabled').removeClass('disabled');
-                    } else {
-                        $('.creditHeader').removeClass('green-text').addClass('red-text');
-                        $('.disabled').addClass('disabled');
+                        // Diminuisce la quantità e in caso di esaurimento lo disabilita
+                        var container = $(this).parents('.step2').attr('id');
+                        var $link = $('a[data-content="' + container + '"]');
+                        var quantity = $link.attr('quantity');
+                        if (quantity == 1)
+                            $link.addClass('esaurito');
+                        $link.attr('quantity', quantity-1);
                     }
+                    i++;
+                }
+                $(this).attr('selection', JSON.stringify(obj));
+                if (available == 0)
+                    return false;
+                $(this).addClass('disabled');
+                $('.step2').addClass('hidden');
+                $('.step3').removeClass('hidden');
+                $(this).removeClass('disabled');
+                erogateProduct(available);
+                progressBar(0);
+                var myVideo = document.getElementById("erogation");
+                myVideo.play();
+                setTimeout(function () { reset(); }, 5000);
+            });
+
+            $('.go-home').click(function () {
+                reset();
+            });
+
+            $('.go-back').click(function () {
+                $('#' + categoryID).removeClass('hidden');
+                $('.step2:not(.hidden)').addClass('hidden');
+            });
+        });
+
+        function reset() {
+            $('.step0').removeClass('hidden');
+            $('.step1:not(.hidden)').addClass('hidden');
+            $('.step2:not(.hidden)').addClass('hidden');
+            $('.step3:not(.hidden)').addClass('hidden');
+            $('.confirm').addClass('disabled');
+            $('.determinate').width('0%');
+        }
+
+        function progressBar(width) {
+            if (width == 100)
+                return;
+            else {
+                width += 1;
+                $('.determinate').width(width + '%');
+                setTimeout(function () { progressBar(width); }, 40);
+            }
+        }
+
+        function checkCredit() {
+            $.get("/Home/Credit", function (data, status) {
+                if (data == 'pong') {
+                    $('.creditHeader').removeClass('red-text').addClass('green-text');
+                    $('.disabled').removeClass('disabled');
+                } else {
+                    $('.creditHeader').removeClass('green-text').addClass('red-text');
+                    $('.disabled').addClass('disabled');
+                }
+            });
+
+            setTimeout(function () { checkCredit(); }, 2000);
+        }
+
+        function erogateProduct(selection) {
+            $.post("/Home/Erogate",
+                {
+                    selection: selection
+                },
+                function (data, status) {
+                    console.log(data);
                 });
-
-                setTimeout(function () { checkCredit(); }, 2000);
-            }
-
-            function erogateProduct(selection) {
-                $.post("/Home/Erogate",
-                    {
-                        selection: selection
-                    },
-                    function (data, status) {
-                        console.log(data);
-                    });
-            }
-        </script>
-    }
+        }
+    </script>
+}

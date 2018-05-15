@@ -33,10 +33,24 @@ namespace LK2.Repositories
                                             position = x.Position,
                                             price = y.Price,
                                             productID = y.ProductID,
-                                            selection = x.Selection
+                                            selections = new List<Selection> { new Selection { selection = x.Selection, quantity = x.Quantity } }
                                          }).ToList();
 
-            return collection;
+            var products = new List<ProductViewModel>();
+            foreach(var product in collection) {
+                // Se il prodotto non è presente nella lista, lo inserisce
+                if (!products.Any(p => p.productID.Equals(product.productID))) {
+                    products.Add(product);
+                }
+                // Altrimenti lo recupera e aggiunge una nuova lista Selection - Quantità
+                else {
+                    var multipleProduct = products.FirstOrDefault(p => p.productID.Equals(product.productID));
+                    foreach(var selection in product.selections)
+                        multipleProduct.selections.Add(selection);
+                }
+            }
+
+            return products;
         }
 
         public ProductLanguage GetProduct(int productID)
@@ -87,6 +101,13 @@ namespace LK2.Repositories
                 Position = position,
                 Selection = selection
             });
+
+            db.SaveChanges();
+        }
+
+        public void UpdateQuantity(int selection){
+            var product = db.ProductCategoryProductPositions.FirstOrDefault(q => q.Selection.Equals(selection));
+            product.Quantity--;
 
             db.SaveChanges();
         }

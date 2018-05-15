@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +16,23 @@ namespace LK2.ViewModels
         public string image { get; set; }
         public int position { get; set; }
         public double price { get; set; }
+        public List<Selection> selections = new List<Selection>();
+        public int quantity {
+            get {
+                return selections.Sum(s => s.quantity);
+            }
+        }
+        public string JsonSelection
+        {
+            get
+            {
+                return JsonConvert.SerializeObject(this.selections);
+            }
+        }
+    }
+
+    public class Selection {
         public int selection { get; set; }
+        public int quantity { get; set; }
     }
 }
