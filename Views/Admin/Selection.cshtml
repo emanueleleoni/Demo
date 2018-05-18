@@ -13,13 +13,13 @@
 <nav class="black">
     <div class="nav-wrapper" style="display:flex;">
         <ul class="left hide-on-med-and-down" style="margin:0 auto;">
-            <li><a href="/Admin/Clone?q=Report">Report</a></li>
+            <li><a href="/Admin/Report">Report</a></li>
             <li><a href="/Admin/Selection">Lista prodotti</a></li>
-            <li><a href="/Admin/Clone?q=Test motori">Test motori</a></li>
-            <li><a href="/Admin/Clone?q=Sistemi di pagamento">Sistemi di pagamento</a></li>
-            <li><a href="/Admin/Clone?q=Gestione USB">Gestione USB</a></li>
-            <li><a href="/Admin/Clone?q=Impostazioni">Impostazioni</a></li>
-            <li><a href="/Admin/Clone?q=Ricette">Ricette</a></li>
+            <li><a href="javascript:;">Test motori</a></li>
+            <li><a href="javascript:;">Sistemi di pagamento</a></li>
+            <li><a href="javascript:;">Gestione USB</a></li>
+            <li><a href="javascript:;">Impostazioni</a></li>
+            <li><a href="javascript:;">Ricette</a></li>
         </ul>
     </div>
 </nav>
@@ -55,7 +55,7 @@
                                             <td>@product.position</td>
                                             <td>@product.name</td>
                                             <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
-                                            <td><input type="text" readonly name="selection" class="selection" value="@product.selection" /></td>
+                                            <td><input type="text" readonly name="selection" class="selection" value="@product.selections.FirstOrDefault().selection" /></td>
                                             <td>
                                                 <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
                                                 <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>

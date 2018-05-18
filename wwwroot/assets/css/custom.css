@@ -61,6 +61,7 @@ body {
 
 main {
     flex: 1 0 auto;
+    display:flex;
 }
 
 select {
@@ -89,19 +90,49 @@ margin-bottom:0;
 .section {
 padding:0;
 }
+#index-banner {
+    width: 100%;
+}
+.collection {
+    display:table;
+    height:100%;
+    width:100%;
+}
 .collection .collection-item {
-line-height:13rem;
+    display:table-row;
+    height:20%;
+}
+.banner {
+    width:100%;
 }
 .esaurito {
-    opacity:0.5;
-    cursor:default;
+    opacity: 0.5;
+    cursor: default;
 }
-/* LOGIN */
-#login-page {
-    margin-top: 100px;
-    padding: 0 0.75rem;
-    width: 300px;
+td.z-depth-2 {
+    text-indent:-9999px;
 }
+footer {
+    padding: 10px 0;
+}
+footer ul {
+    margin:0;
+}
+footer p {
+    margin:0;
+}
+footer ul li {
+    display: inline-block;
+}
+    footer .logo {
+        height:60px;
+    }
+    /* LOGIN */
+    #login-page {
+        margin-top: 100px;
+        padding: 0 0.75rem;
+        width: 300px;
+    }
 
 form {
     padding: 0px;
@@ -168,7 +199,7 @@ form {
 
 #keyboard .space {
     clear: left;
-    width: 681px;
+    width: 601px;
 }
 
 .on {

@@ -3,7 +3,6 @@
 <head>
     <title>Manea Test - @ViewBag.Title</title>
     <link type="text/css" rel="stylesheet" href="~/assets/css/materialize.min.css" />
-    <link type="text/css" rel="stylesheet" href="~/assets/css/nouislider.min.css" />
     <link type="text/css" rel="stylesheet" href="~/assets/css/custom.css?v=0.0.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -16,20 +15,26 @@
             @RenderBody()
         </div>
     </main>
-    @*<footer>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; @System.DateTime.Now.Year - Localization.StarterWeb</p>
-                </div>
-                <div class="col-md-6 text-right">
-                    @await Html.PartialAsync("_Footer")
-                </div>
-            </div>
-        </footer>*@
+    <footer class="black">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><img class="logo" src="~/assets/images/manea.png" alt="" /></li>
+                                <li><img class="logo" src="~/assets/images/pagita.png" alt="" /></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p class="white-text">Manea Vending e Pagita insieme per portare il vending sul cloud</p></td>
+                    </tr>
+                </tbody>
+            </table>
+    </footer>
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="~/assets/js/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="~/assets/js/nouislider.min.js"></script>
     <script type="text/javascript" src="~/assets/js/materialize.min.js"></script>
     @RenderSection("js", false)
 </body>

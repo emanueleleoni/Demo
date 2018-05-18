@@ -82,10 +82,10 @@ namespace LK2.Controllers
             }
         }
 
-        public async Task<string> Credit()
+        public async Task<string> Status()
         {
             UTF8Encoding enc = new UTF8Encoding();
-            string data = "{ \"method\" : \"" + _jsonRPC.Credit + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
+            string data = "{ \"method\" : \"" + _jsonRPC.Status + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
 
             //Create request
             WebRequest request = WebRequest.Create(_jsonRPC.Server);
@@ -106,8 +106,33 @@ namespace LK2.Controllers
             return JsonConvert.DeserializeObject<JsonRpc>(content).result;
         }
 
+        public async Task<string> Open()
+        {
+            UTF8Encoding enc = new UTF8Encoding();
+            string data = "{ \"params\": [" + _jsonRPC.URL_Admin + "],\"method\" : \"" + _jsonRPC.URL_Change + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
+
+            //Create request
+            WebRequest request = WebRequest.Create(_jsonRPC.Server);
+            request.Method = "POST";
+            request.ContentType = "application/json";
+
+            //Set data in request
+            Stream dataStream = await request.GetRequestStreamAsync();
+            dataStream.Write(enc.GetBytes(data), 0, data.Length);
+
+
+            //Get the response
+            WebResponse wr = await request.GetResponseAsync();
+            Stream receiveStream = wr.GetResponseStream();
+            StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
+            string content = reader.ReadToEnd();
+
+            return JsonConvert.DeserializeObject<JsonRpc>(content).result;
+        }
+
+
         [HttpPost]
-        public async Task<string> Erogate(int selection)
+        public async Task<string> Erogate(int selection, int sugar)
         {
             UTF8Encoding enc = new UTF8Encoding();
             string data = "{ \"params\": ["+ selection + "], \"method\" : \"" + _jsonRPC.Erogate + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";

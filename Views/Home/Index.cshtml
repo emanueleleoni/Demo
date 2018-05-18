@@ -13,24 +13,29 @@
     var products = ViewBag.Products as List<ProductViewModel>;
 }
 
+<!-- STEP0 LISTA CATEGORIE PRODOTTI -->
 <div class="section step0">
-    <div class="row ">
-        <div class="collection center-align">
-            @{ var index = 1; }
-            @foreach (var category in categories)
-            {
-                <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(/assets/images/bg-cat@(category.CategoryProductID).jpg); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
-                    <p style="font-weight:bold; font-size:20px; color:black; text-transform:uppercase; text-indent:-9999px;">@category.Name</p>
-                    <div style="position: absolute;  top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:40px; line-height:4rem; width:300px;" class="black">
-                        <span style="font-weight:bold; font-size:22px; color:white; text-transform:uppercase;">@category.Name</span>
-                    </div>
-                </a>
-                index++;
-            }
-        </div>
+    <div class="collection center-align">
+        @{ var index = 1; }
+        @foreach (var category in categories)
+        {
+            <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(/assets/images/bg-cat@(category.CategoryProductID).jpg); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
+                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:40px; width:300px;" class="black">
+                    <span style="font-weight:bold; font-size:22px; color:white; text-transform:uppercase;">@category.Name</span>
+                </div>
+            </a>
+            index++;
+        }
+    </div>
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
     </div>
 </div>
 
+<!-- STEP1 LISTA PRODOTTI DELLA CATEGORIA -->
 @foreach (var category in categories)
 {
     <div class="container">
@@ -56,38 +61,64 @@
                     </a>
                 }
             </div>
-            <a class="waves-effect btn-small go-home">INDIETRO</a>
+            <a style="width:100%; margin-top:20px;" class="waves-effect btn-large go-home black">INDIETRO</a>
         </div>
     </div>
 }
-
+<!-- PRODOTTI SINGOLI -->
 @foreach (var product in products)
 {
     <div class="container">
         <div class="section step2 hidden" id="prod@(product.productID)">
             <div class="row" style="margin-top:7px;">
-                <div class="col s12 m6">
+                <div class="col s12">
                     <img src="@product.image" width="100%" />
                 </div>
-                <div class="col s12 m6">
-                    <h1>@product.name</h1>
-                    <p>@Html.Raw(product.description)</p>
+                <div class="col s12 center-align">
+                    <h1 style="text-transform:uppercase;">@product.name</h1>
+                    <p class="center-align">@Html.Raw(product.description)</p>
                     @if (product.categoryID.Equals(1) || product.categoryID.Equals(2))
                     {
-                        <h3 class="center-align">SELEZIONA LO ZUCCHERO</h3>
-                        <div style="margin-bottom:50px;" id="slider-@product.productID" class="slider-pips"></div>
+                        <h2 class="center-align">SELEZIONA LO ZUCCHERO</h2>
+                        <table cellpadding="2" cellspacing="2" border="0" class="sugar">
+                            <colgroup>
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td><a class="waves-effect waves-light btn-large black removeSugar" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
+                                    <td class="amber z-depth-2">1</td>
+                                    <td class="amber z-depth-2">2</td>
+                                    <td class="amber z-depth-2">3</td>
+                                    <td class="amber z-depth-2 current">4</td>
+                                    <td class="grey lighten-5 z-depth-2">5</td>
+                                    <td class="grey lighten-5 z-depth-2">6</td>
+                                    <td class="grey lighten-5 z-depth-2">7</td>
+                                    <td class="grey lighten-5 z-depth-2">8</td>
+                                    <td><a class="waves-effect waves-light btn-large black addSugar" href="javascript:;"><i class="material-icons">add</i>button</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     }
-                    <a class="waves-effect waves-light btn-large disabled confirm" selection="@product.JsonSelection">CONFERMA @string.Format("{0:N2}", product.price) &euro;</a>
-
+                    <a style="width:100%; margin-top:20px; " class="waves-effect waves-light btn-large disabled confirm green" selection="@product.JsonSelection">CONFERMA @string.Format("{0:N2}", product.price) &euro;</a>
+                    <a style="width:100%; margin-top:20px; " class="waves-effect waves-light btn-large go-back black">INDIETRO</a>
                 </div>
             </div>
-            <a class="waves-effect btn-small go-back">INDIETRO</a>
         </div>
     </div>
 }
-
-<div class="container">
-    <div class="section step3 hidden">
+<!-- STEP3 EROGAZIONE -->
+<div class="section step3 hidden">
+    <div class="container" style="display:table; height:100%;">
         <h2 class="header center black-text">EROGAZIONE IN CORSO</h2>
         <div class="col s12">
             <div class="progress">
@@ -99,17 +130,50 @@
             Your browser does not support the video tag.
         </video>
     </div>
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
+        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
+    </div>
+</div>
+
+<!-- LOADER -->
+<div class="valign-wrapper white hidden loader" style="position:fixed; top:0; right:0; bottom:0; left:0; opacity:0.7; z-index:1000;">
+    <div class="preloader-wrapper big active" style="margin:0 auto;">
+        <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section js {
     <script type="text/javascript">
         $(function () {
+            $('.step0 .carousel.carousel-slider').carousel({
+                fullWidth: true,
+                numVisible: 1,
+                indicators: true
+            });
+            // RESIZE STEP0
+            var height = $('#index-banner').height();
+            var banner = $('.banner').height();
+            var sugar = 4;
+            var fullHeight = height - banner;
+            $('.step0').height(fullHeight);            
+
             var categoryID;
-            // CHECK PING
-            checkCredit();
+            // CHECK STATUS
+            checkStatus();
 
             // SELEZIONE CATEGORIA
-            $('.step0 a').click(function () {
+            $('.step0 a:not(".carousel-item")').click(function () {
                 categoryID = $(this).attr('data-content');
                 $('.step0').addClass('hidden');
                 $('#' + categoryID).removeClass('hidden');
@@ -122,35 +186,61 @@
                 $('.step1').addClass('hidden');
                 $('#' + productID).removeClass('hidden');
             });
-
-            // CONFERMA PRODOTTO
-            // SLIDE
-            var sliders = [$('.slider-pips').length - 1];
-
-            $('.slider-pips').each(function (i) {
-                var $id = $(this).attr('id');
-                sliders[i] = document.getElementById($id);
-
-                noUiSlider.create(sliders[i], {
-                    range: {
-                        min: 0,
-                        max: 6
-                    },
-                    start: 2,
-                    pips: {
-                        mode: 'values',
-                        values: [0, 1, 2, 3, 4, 5, 6],
-                        density: 100
+            $('.addSugar').click(function () {
+                if (sugar == 0) {
+                    sugar++;
+                    var $remove = $(this).parents('table').find('.removeSugar').parent();
+                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                }
+                else {
+                    var $current = $(this).parents('table').find('.current');
+                    if (sugar == 8)
+                        return false;
+                    else {
+                        sugar++;
+                        $current.removeClass('current');
+                        $current.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
                     }
-                });
+                }
+            });
+            $('.removeSugar').click(function () {
+                var $current = $(this).parents('table').find('.current');
+                if (sugar == 0)
+                    return false;
+                else {
+                    sugar--;
+                    $current.removeClass('current').removeClass('amber').addClass('grey lighten-5');
+                    if (sugar > 0)
+                        $current.prev().addClass('current');
+                }
             });
 
+            // CONFERMA PRODOTTO
             $('.confirm').click(function () {
+                var sugarToErogate = 0;
+                var $container = $(this).parent();
+                var $sugar = $container.find('.sugar');
+                if ($sugar.length == 1) {
+                    sugarToErogate = sugar;
+                    // Reimposta lo zucchero a 4
+                    sugar = 4;
+                    $sugar.find('.current').removeClass('current');
+                    $sugar.find('.z-depth-2').each(function (i) {
+                        if (i <= 3) {
+                            $(this).removeClass('grey lighten-5').addClass('amber');
+                            if (i == 3)
+                                $(this).addClass('current');
+                        }
+                        else
+                            $(this).removeClass('amber').addClass('grey lighten-5');
+                    });
+                }
+
                 var available = 0;
                 var selection = $(this).attr('selection');
                 var obj = JSON.parse(selection);
                 var i = 0;
-                while ((i < obj.length) && (available == 0)) { 
+                while ((i < obj.length) && (available == 0)) {
                     if (obj[i].quantity > 0) {
                         available = obj[i].selection;
                         obj[i].quantity--;
@@ -161,7 +251,7 @@
                         var quantity = $link.attr('quantity');
                         if (quantity == 1)
                             $link.addClass('esaurito');
-                        $link.attr('quantity', quantity-1);
+                        $link.attr('quantity', quantity - 1);
                     }
                     i++;
                 }
@@ -170,9 +260,14 @@
                     return false;
                 $(this).addClass('disabled');
                 $('.step2').addClass('hidden');
-                $('.step3').removeClass('hidden');
+                $('.step3').removeClass('hidden').height(fullHeight);
+                $('.step3 .carousel.carousel-slider').carousel({
+                    fullWidth: true,
+                    numVisible: 1,
+                    indicators: true
+                });
                 $(this).removeClass('disabled');
-                erogateProduct(available);
+                erogateProduct(available, sugarToErogate);
                 progressBar(0);
                 var myVideo = document.getElementById("erogation");
                 myVideo.play();
@@ -208,24 +303,34 @@
             }
         }
 
-        function checkCredit() {
-            $.get("/Home/Credit", function (data, status) {
-                if (data == 'pong') {
+        function checkStatus() {
+            $.get("/Home/Status", function (data, status) {
+                // Se risposta è 1, allora porta chiusa e rfid attiva
+                if (data == '1') {
                     $('.creditHeader').removeClass('red-text').addClass('green-text');
                     $('.disabled').removeClass('disabled');
-                } else {
+                    setTimeout(function () { checkStatus(); }, 2000);
+                }
+                // Se risposta è 0, allora porta chiusa e rfid non attivo
+                else if (data == '0') {
                     $('.creditHeader').removeClass('green-text').addClass('red-text');
                     $('.disabled').addClass('disabled');
+                    setTimeout(function () { checkStatus(); }, 2000);
+                }
+                else if (data == '2') {
+                    $('.loader').removeClass('hidden');
+                    $.get("/Home/Close", function (data, status) {
+                        console.log('close');
+                    });
                 }
             });
-
-            setTimeout(function () { checkCredit(); }, 2000);
         }
 
-        function erogateProduct(selection) {
+        function erogateProduct(selection, sugar) {
             $.post("/Home/Erogate",
                 {
-                    selection: selection
+                    selection: selection,
+                    sugar: sugar
                 },
                 function (data, status) {
                     console.log(data);
