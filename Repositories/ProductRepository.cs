@@ -53,18 +53,41 @@ namespace LK2.Repositories
             return products;
         }
 
+        public List<ProductViewModel> GetAdminList(int languageID)
+        {
+            SqlCommand cmd = new SqlCommand("select * from ProductCategoryProductPositions pcp inner join Products p on pcp.productid = p.productid inner join ProductLanguages pl on p.productid = pl.productid where pl.languageid = 1 order by pcp.categoryproductid, pcp.position");
+
+            List<ProductViewModel> collection = (from x in db.ProductCategoryProductPositions
+                                                 join y in db.Products on x.ProductID equals y.ProductID
+                                                 join z in db.ProductLanguages on y.ProductID equals z.ProductID
+                                                 select new ProductViewModel
+                                                 {
+                                                     categoryID = x.CategoryProductID,
+                                                     description = z.Description,
+                                                     image = y.Image,
+                                                     name = z.Name,
+                                                     position = x.Position,
+                                                     price = y.Price,
+                                                     productID = y.ProductID,
+                                                     selections = new List<Selection> { new Selection { selection = x.Selection, quantity = x.Quantity } }
+                                                 }).ToList();
+
+            return collection;
+        }
+
         public ProductLanguage GetProduct(int productID)
         {
             return db.ProductLanguages.FirstOrDefault(pl => pl.ProductID.Equals(productID));
         }
 
-        public void UpdateProduct(int productID, int categoryProductID, double price, int selection, int position){
+        public void UpdateProduct(int productID, int categoryProductID, double price, int selection, int quantity, int position){
             var product = db.Products.FirstOrDefault(p => p.ProductID.Equals(productID));
             product.Price = price;
             var productCategory = db.ProductCategoryProductPositions.FirstOrDefault(pcp => pcp.ProductID.Equals(productID) &&
                                                                                            pcp.CategoryProductID.Equals(pcp.CategoryProductID) &&
                                                                                            pcp.Position.Equals(position));
             productCategory.Selection = selection;
+            productCategory.Quantity = quantity;
 
             db.SaveChanges();
         }
@@ -84,7 +107,7 @@ namespace LK2.Repositories
             return new NewProductViewModel
             {
                 categoryID = categoryProductID,
-                productsAvailable = this.GetList(1),
+                productsAvailable = this.GetList(1).Where(q => q.categoryID.Equals(categoryProductID)).ToList(),
                 position = position
             };
         }
@@ -94,12 +117,13 @@ namespace LK2.Repositories
             return products.Where(p => p.categoryID.Equals(categoryProductID)).OrderByDescending(p => p.position).FirstOrDefault().position;
         }
 
-        public void AddProductToCategory(int categoryProductID, int productID, int position, int selection){
+        public void AddProductToCategory(int categoryProductID, int productID, int position, int selection, int quantity){
             db.ProductCategoryProductPositions.Add(new ProductCategoryProductPosition { 
                 CategoryProductID = categoryProductID,
                 ProductID = productID,
                 Position = position,
-                Selection = selection
+                Selection = selection,
+                Quantity = quantity
             });
 
             db.SaveChanges();

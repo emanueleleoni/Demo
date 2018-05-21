@@ -24,61 +24,68 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="section">
-        <h2 class="header center black-text">LISTA PRODOTTI</h2>
 
-        <div class="row">
-            <ul class="collapsible">
-                @foreach (var category in categories)
-                {
-                    <!-- LISTA CATEGORIE PRODOTTI -->
-                    <li>
-                        <div class="collapsible-header"><i class="material-icons">folder_open</i>@category.Name (@products.Where(p => p.categoryID.Equals(category.CategoryProductID)).Count())</div>
-                        <div class="collapsible-body grey lighten-5">
-                            <!-- LISTA PRODOTTI DELLA CATEGORIA -->
-                            <table class="striped">
-                                <thead>
-                                    <tr>
-                                        <th>Posizione</th>
-                                        <th>Nome</th>
-                                        <th>Prezzo &euro;</th>
-                                        <th>Selezione</th>
-                                        <th>Opzioni</th>
-                                    </tr>
-                                </thead>
+<div class="section">
+    <h2 class="header center black-text">LISTA PRODOTTI</h2>
 
-                                <tbody>
-                                    @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(p => p.position).ToList())
-                                    {
-                                        <tr id="@category.CategoryProductID-@product.productID-@product.position">
-                                            <td>@product.position</td>
-                                            <td>@product.name</td>
-                                            <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
-                                            <td><input type="text" readonly name="selection" class="selection" value="@product.selections.FirstOrDefault().selection" /></td>
-                                            <td>
-                                                <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
-                                                <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
-                                            </td>
-                                        </tr>
-                                    }
-                                    <tr>
-                                        <td colspan="4">
-                                            <div class="center-align">
-                                                <a class="btn-floating btn-large waves-effect waves-light green new" id="@category.CategoryProductID"><i class="material-icons">add</i></a>
-                                            </div>
+    <div class="row">
+        <ul class="collapsible">
+            @foreach (var category in categories)
+            {
+                <!-- LISTA CATEGORIE PRODOTTI -->
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">folder_open</i>@category.Name (@products.Where(p => p.categoryID.Equals(category.CategoryProductID)).Count())</div>
+                    <div class="collapsible-body grey lighten-5">
+                        <!-- LISTA PRODOTTI DELLA CATEGORIA -->
+                        <table class="striped">
+                            <colgroup>
+                                <col span="1" style="width: 15%" />
+                                <col span="1" style="width: 40%" />
+                                <col span="1" style="width: 15%" />
+                                <col span="1" style="width: 15%" />
+                                <col span="1" style="width: 15%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Selezione</th>
+                                    <th>Nome</th>
+                                    <th>Prezzo &euro;</th>
+                                    <th>Quantit&aacute;</th>
+                                    <th>Opzioni</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(p => p.position).ToList())
+                                {
+                                    <tr id="@category.CategoryProductID-@product.productID-@product.position">
+                                        <td><input type="text" readonly name="selection" class="selection" value="@product.selections.FirstOrDefault().selection" /></td>
+                                        <td>@product.name</td>
+                                        <td><input type="text" readonly name="price" class="price" value="@product.price" /></td>
+                                        <td><input type="text" readonly name="quantity" class="quantity" value="@product.selections.FirstOrDefault().quantity" /></td>
+                                        <td>
+                                            <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
+                                            <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
+                                }
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="center-align">
+                                            <a class="btn-floating btn-large waves-effect waves-light green new" id="@category.CategoryProductID"><i class="material-icons">add</i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
 </div>
+
 <!-- LOADER -->
 <div class="valign-wrapper white hidden loader" style="position:fixed; top:0; right:0; bottom:0; left:0; opacity:0.7;">
     <div class="preloader-wrapper big active" style="margin:0 auto;">
@@ -103,8 +110,11 @@
             $('.edit').click(function () {
                 if ($(this).hasClass('save')) {
                     $('.loader').toggleClass('hidden');
+                    // Recupera prezzo/selezione/quantità
                     var $price = $(this).parents('tr').find('.price');
                     var $selection = $(this).parents('tr').find('.selection');
+                    var $quantity = $(this).parents('tr').find('.quantity');
+                    // Recupera categoryID/productID/Position per indentificare la selezione
                     var catProd = $(this).parents('tr').attr('id');
                     var split = catProd.split("-");
                     var categoryID = split[0];
@@ -117,6 +127,7 @@
                             productID: productID,
                             price: $price.val(),
                             selection: $selection.val(),
+                            quantity: $quantity.val(),
                             position: position
                         },
                         function (data, status) {
@@ -128,6 +139,7 @@
                     $(this).toggleClass("save", true);
                     $(this).parents('tr').find('.price').attr("readonly", false);
                     $(this).parents('tr').find('.selection').attr("readonly", false);
+                    $(this).parents('tr').find('.quantity').attr("readonly", false);
                 }
             });
             // DELETE PRODUCT
@@ -150,7 +162,6 @@
                         function (data, status) {
                             $('.loader').toggleClass('hidden');
                         });
-
                 }
             });
             // ADD PRODUCT
@@ -182,13 +193,15 @@
             var position = $('input[name="position"]').val();
             var productID = $('select[name="productID"] :selected').val();
             var selection = $('input[name="newSelection"]').val();
+            var quantity  = $('input[name="newQuantity"]').val();
             $('.loader').toggleClass('hidden');
             $.post("/Admin/Create",
                 {
                     categoryProductID: categoryID,
                     productID: productID,
                     position: position,
-                    selection: selection
+                    selection: selection,
+                    quantity: quantity
                 },
                 function (data, status) {
                     location.reload();

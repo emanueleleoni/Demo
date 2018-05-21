@@ -76,7 +76,7 @@
                 </div>
                 <div class="col s12 center-align">
                     <h1 style="text-transform:uppercase;">@product.name</h1>
-                    <p class="center-align">@Html.Raw(product.description)</p>
+                    <span class="center-align" style="font-size:18px;">@Html.Raw(product.description)</span>
                     @if (product.categoryID.Equals(1) || product.categoryID.Equals(2))
                     {
                         <h2 class="center-align">SELEZIONA LO ZUCCHERO</h2>
@@ -156,18 +156,24 @@
 @section js {
     <script type="text/javascript">
         $(function () {
-            $('.step0 .carousel.carousel-slider').carousel({
-                fullWidth: true,
-                numVisible: 1,
-                indicators: true
-            });
-            // RESIZE STEP0
-            var height = $('#index-banner').height();
-            var banner = $('.banner').height();
-            var sugar = 4;
-            var fullHeight = height - banner;
-            $('.step0').height(fullHeight);            
+            $('.loader').toggleClass('hidden');
+            setTimeout(function () { 
+                $('.step0 .carousel.carousel-slider').carousel({
+                    fullWidth: true,
+                    numVisible: 1,
+                    indicators: true
+                });
 
+                // RESIZE STEP0
+                var height = $('#index-banner').height();
+                var banner = $('.banner').height();
+                var sugar = 4;
+                var fullHeight = height - banner;
+                $('.step0').height(fullHeight); 
+
+                $('.loader').toggleClass('hidden');
+            }, 2000);
+           
             var categoryID;
             // CHECK STATUS
             checkStatus();

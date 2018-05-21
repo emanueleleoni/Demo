@@ -13,13 +13,15 @@ namespace LK2.Repositories
 
         List<ProductViewModel> GetList(int languageID);
 
-        void UpdateProduct(int productID, int categoryID, double price, int selection, int position);
+        List<ProductViewModel> GetAdminList(int languageID);
+
+        void UpdateProduct(int productID, int categoryID, double price, int selection, int quantity, int position);
 
         void DeleteProduct(int categoryProductID, int productID, int position);
 
         NewProductViewModel AddProduct(int categoryProductID);
 
-        void AddProductToCategory(int categoryProductID, int productID, int position, int selection);
+        void AddProductToCategory(int categoryProductID, int productID, int position, int selection, int quantity);
 
         void UpdateQuantity(int selection);
     }

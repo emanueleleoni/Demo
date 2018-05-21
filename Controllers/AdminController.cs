@@ -59,14 +59,14 @@ namespace lk2_demo.Controllers
 
         public IActionResult Selection(){
             ViewBag.Categories = repoCat.GetList(1);
-            ViewBag.Products = repoProd.GetList(1);
+            ViewBag.Products = repoProd.GetAdminList(1);
             
             return View();
         }
 
         [HttpPost]
-        public string Update(int categoryProductID, int productID, double price, int selection, int position){
-            repoProd.UpdateProduct(productID, categoryProductID, price, selection, position);
+        public string Update(int categoryProductID, int productID, double price, int selection, int quantity, int position){
+            repoProd.UpdateProduct(productID, categoryProductID, price, selection, quantity, position);
 
             return "ok";
         }
@@ -87,9 +87,9 @@ namespace lk2_demo.Controllers
 
 
         [HttpPost]
-        public string Create(int categoryProductID, int productID, int position, int selection)
+        public string Create(int categoryProductID, int productID, int position, int selection, int quantity)
         {
-            repoProd.AddProductToCategory(categoryProductID, productID, position, selection);
+            repoProd.AddProductToCategory(categoryProductID, productID, position, selection, quantity);
 
             return "ok";
         }
