@@ -64,6 +64,11 @@ namespace lk2_demo.Controllers
             return View();
         }
 
+        public IActionResult Recipe()
+        {
+            return View();
+        }
+
         [HttpPost]
         public string Update(int categoryProductID, int productID, double price, int selection, int quantity, int position){
             repoProd.UpdateProduct(productID, categoryProductID, price, selection, quantity, position);

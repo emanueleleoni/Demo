@@ -167,7 +167,6 @@
                 // RESIZE STEP0
                 var height = $('#index-banner').height();
                 var banner = $('.banner').height();
-                var sugar = 4;
                 var fullHeight = height - banner;
                 $('.step0').height(fullHeight); 
 
@@ -192,6 +191,8 @@
                 $('.step1').addClass('hidden');
                 $('#' + productID).removeClass('hidden');
             });
+
+            var sugar = 4;
             $('.addSugar').click(function () {
                 if (sugar == 0) {
                     sugar++;

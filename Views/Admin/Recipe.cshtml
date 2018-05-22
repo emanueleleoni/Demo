@@ -1,0 +1,564 @@
+﻿@{
+    Layout = "_Admin";
+}
+
+<nav class="black">
+    <div class="nav-wrapper" style="display:flex;">
+        <ul class="left hide-on-med-and-down" style="margin:0 auto;">
+            <li><a href="/Admin/Report">Report</a></li>
+            <li><a href="/Admin/Selection">Lista prodotti</a></li>
+            <li><a href="javascript:;">Test motori</a></li>
+            <li><a href="javascript:;">Sistemi di pagamento</a></li>
+            <li><a href="javascript:;">Gestione USB</a></li>
+            <li><a href="javascript:;">Impostazioni</a></li>
+            <li><a href="/Admin/Recipe">Ricette</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container white">
+    <div class="section">
+        <h2 class="header center black-text" style="text-transform:uppercase;">RICETTE</h2>
+        <div class="col s12">
+            <table cellpadding="0" cellspacing="0" border="1">
+                <thead>
+                    <tr>
+                        <th style="padding-bottom:10px; border-bottom:1px solid black;">Ricetta</th>
+                        <th style="padding-bottom:10px; border-bottom:1px solid black;">Prezzo</th>
+                        <th style="padding-bottom:10px; border-bottom:1px solid black;">Totale erogazioni</th>
+                        <th style="padding-bottom:10px; border-bottom:1px solid black;">Opzioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">Caff&eacute;</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">1 &euro;</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">30</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">
+                            <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
+                            <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">Cappuccino</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">2 &euro;</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">10</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">
+                            <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
+                            <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">Capp ciok</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">2 &euro;</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">20</td>
+                        <td style="padding:10px 0; border-bottom:1px solid grey;">
+                            <a href="javascript:;" class="edit"><i class="material-icons">edit</i></a>
+                            <a href="javascript:;" class="delete"><i class="material-icons">delete</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section hidden modRecipe">
+        <h2 class="header center black-text" style="text-transform:uppercase;">MODIFICA <span class="ricetta">RICETTA</span></h2>
+        <div class="col s12">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <colgroup>
+                    <col span="1" style="width:33.3%;" />
+                    <col span="1" style="width:33.3%;" />
+                    <col span="1" style="width:33.3%;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td><p>Prodotto 1</p></td>
+                        <td colspan="2">
+                            <select name="prodotto1" id="prodotto1">
+                                <option value="" selected="selected">caff&eacute;</option>
+                                <option value="">zucchero</option>
+                                <option value="">latte</option>
+                                <option value="">orzo</option>
+                                <option value="">cioccolata</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantità</td>
+                        <td colspan="2">
+                            <table cellpadding="2" cellspacing="2" border="0" class="sugar">
+                                <colgroup>
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td><a class="waves-effect waves-light btn black removeProduct1" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
+                                        <td class="amber z-depth-2">1</td>
+                                        <td class="amber z-depth-2">2</td>
+                                        <td class="amber z-depth-2">3</td>
+                                        <td class="amber z-depth-2 current">4</td>
+                                        <td class="grey lighten-5 z-depth-2">5</td>
+                                        <td class="grey lighten-5 z-depth-2">6</td>
+                                        <td class="grey lighten-5 z-depth-2">7</td>
+                                        <td class="grey lighten-5 z-depth-2">8</td>
+                                        <td><a class="waves-effect waves-light btn black addProduct1" href="javascript:;"><i class="material-icons">add</i>button</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p>Prodotto 2</p></td>
+                        <td colspan="2">
+                            <select name="prodotto2" id="prodotto2">
+                                <option value="">caff&eacute;</option>
+                                <option value="">zucchero</option>
+                                <option selected="selected" value="">latte</option>
+                                <option value="">orzo</option>
+                                <option value="">cioccolata</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantità</td>
+                        <td colspan="2">
+                            <table cellpadding="2" cellspacing="2" border="0" class="sugar">
+                                <colgroup>
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td><a class="waves-effect waves-light btn black removeProduct2" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
+                                        <td class="amber z-depth-2">1</td>
+                                        <td class="amber z-depth-2">2</td>
+                                        <td class="amber z-depth-2">3</td>
+                                        <td class="amber z-depth-2 current">4</td>
+                                        <td class="grey lighten-5 z-depth-2">5</td>
+                                        <td class="grey lighten-5 z-depth-2">6</td>
+                                        <td class="grey lighten-5 z-depth-2">7</td>
+                                        <td class="grey lighten-5 z-depth-2">8</td>
+                                        <td><a class="waves-effect waves-light btn black addProduct2" href="javascript:;"><i class="material-icons">add</i>button</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td>Acqua</td>
+                        <td colspan="2">
+                            <table cellpadding="2" cellspacing="2" border="0" class="sugar">
+                                <colgroup>
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td><a class="waves-effect waves-light btn black removeWater" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
+                                        <td class="amber z-depth-2">1</td>
+                                        <td class="amber z-depth-2">2</td>
+                                        <td class="amber z-depth-2">3</td>
+                                        <td class="amber z-depth-2 current">4</td>
+                                        <td class="grey lighten-5 z-depth-2">5</td>
+                                        <td class="grey lighten-5 z-depth-2">6</td>
+                                        <td class="grey lighten-5 z-depth-2">7</td>
+                                        <td class="grey lighten-5 z-depth-2">8</td>
+                                        <td><a class="waves-effect waves-light btn black addWater" href="javascript:;"><i class="material-icons">add</i>button</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td>Zucchero</td>
+                        <td colspan="2">
+                            <table cellpadding="2" cellspacing="2" border="0" class="sugar">
+                                <colgroup>
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td><a class="waves-effect waves-light btn black removeSugar" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
+                                        <td class="amber z-depth-2">1</td>
+                                        <td class="amber z-depth-2">2</td>
+                                        <td class="amber z-depth-2">3</td>
+                                        <td class="amber z-depth-2 current">4</td>
+                                        <td class="grey lighten-5 z-depth-2">5</td>
+                                        <td class="grey lighten-5 z-depth-2">6</td>
+                                        <td class="grey lighten-5 z-depth-2">7</td>
+                                        <td class="grey lighten-5 z-depth-2">8</td>
+                                        <td><a class="waves-effect waves-light btn black addSugar" href="javascript:;"><i class="material-icons">add</i>button</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td>Velocità Mixer</td>
+                        <td colspan="2">
+                            <table cellpadding="2" cellspacing="2" border="0" class="sugar">
+                                <colgroup>
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td><a class="waves-effect waves-light btn black removeMixer" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
+                                        <td class="amber z-depth-2">1</td>
+                                        <td class="amber z-depth-2">2</td>
+                                        <td class="amber z-depth-2">3</td>
+                                        <td class="amber z-depth-2 current">4</td>
+                                        <td class="grey lighten-5 z-depth-2">5</td>
+                                        <td class="grey lighten-5 z-depth-2">6</td>
+                                        <td class="grey lighten-5 z-depth-2">7</td>
+                                        <td class="grey lighten-5 z-depth-2">8</td>
+                                        <td><a class="waves-effect waves-light btn black addMixer" href="javascript:;"><i class="material-icons">add</i>button</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td>Temperatura Acqua</td>
+                        <td colspan="2">
+                            <table cellpadding="2" cellspacing="2" border="0" class="sugar">
+                                <colgroup>
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td><a class="waves-effect waves-light btn black removeTemperature" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
+                                        <td class="amber z-depth-2">1</td>
+                                        <td class="amber z-depth-2">2</td>
+                                        <td class="amber z-depth-2">3</td>
+                                        <td class="amber z-depth-2 current">4</td>
+                                        <td class="grey lighten-5 z-depth-2">5</td>
+                                        <td class="grey lighten-5 z-depth-2">6</td>
+                                        <td class="grey lighten-5 z-depth-2">7</td>
+                                        <td class="grey lighten-5 z-depth-2">8</td>
+                                        <td><a class="waves-effect waves-light btn black addTemperature" href="javascript:;"><i class="material-icons">add</i>button</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td>Paletta</td>
+                        <td colspan="2">
+                            <div class="switch">
+                                <label>
+                                    Off
+                                    <input type="checkbox">
+                                    <span class="lever"></span>
+                                    On
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td>Sequenza Erogazione</td>
+                        <td colspan="2">
+                            <p style="display:inline-block;">
+                                <label>
+                                    <input name="paletta" type="radio" checked />
+                                    <span>A</span>
+                                </label>
+                            </p>
+                            <p style="display:inline-block; margin-left:30px;">
+                                <label>
+                                    <input name="paletta" type="radio" />
+                                    <span>B</span>
+                                </label>
+                            </p>
+                            <p style="display:inline-block; margin-left:30px;">
+                                <label>
+                                    <input name="paletta" type="radio" />
+                                    <span>C</span>
+                                </label>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3"><h3>Opzioni aggiuntive</h3></td></tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" class="filled-in" checked="checked" />
+                                <span>Praline</span>
+                            </label>
+                        </td>
+                        <td colspan="2">
+                            <input id="praline" placeholder="0,50 €" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" class="filled-in" />
+                                <span>Sciroppo</span>
+                            </label>
+                        </td>
+                        <td colspan="2">
+                            <input id="sciroppo" disabled="disabled" placeholder="0,50 €" type="text">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a style="width:100%; margin-top:20px; " class="waves-effect waves-light btn-large confirm green">SALVA</a>
+        </div>
+    </div>
+</div>
+
+
+@section js {
+    <script type="text/javascript">
+        $(document).ready(function () { 
+            $('.edit').click(function () {
+                var recipe = $(this).parents('tr').find('td:eq(0)').text();
+                $('.modRecipe h2 .ricetta').text(recipe);
+                $('.modRecipe').toggleClass('hidden');
+            });
+
+            $('.confirm').click(function () { 
+                $('.modRecipe').toggleClass('hidden');
+            });
+
+            // SLIDERS
+            var sugar = 4;
+            $('.addSugar').click(function () {
+                if (sugar == 0) {
+                    sugar++;
+                    var $remove = $(this).parents('tr').find('.removeSugar').parent();
+                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                }
+                else {
+                    var $current = $(this).parents('tr').find('.current');
+                    if (sugar == 8)
+                        return false;
+                    else {
+                        sugar++;
+                        $current.removeClass('current');
+                        $current.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                    }
+                }
+            });
+            $('.removeSugar').click(function () {
+                var $current = $(this).parents('tr').find('.current');
+                if (sugar == 0)
+                    return false;
+                else {
+                    sugar--;
+                    $current.removeClass('current').removeClass('amber').addClass('grey lighten-5');
+                    if (sugar > 0)
+                        $current.prev().addClass('current');
+                }
+            });
+
+            var product1 = 4;
+            $('.addProduct1').click(function () {
+                if (product1 == 0) {
+                    product1++;
+                    var $remove = $(this).parents('tr').find('.removeProduct1').parent();
+                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                }
+                else {
+                    var $current = $(this).parents('tr').find('.current');
+                    if (product1 == 8)
+                        return false;
+                    else {
+                        product1++;
+                        $current.removeClass('current');
+                        $current.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                    }
+                }
+            });
+            $('.removeProduct1').click(function () {
+                var $current = $(this).parents('tr').find('.current');
+                if (product1 == 0)
+                    return false;
+                else {
+                    product1--;
+                    $current.removeClass('current').removeClass('amber').addClass('grey lighten-5');
+                    if (product1 > 0)
+                        $current.prev().addClass('current');
+                }
+            });
+
+            var product2 = 4;
+            $('.addProduct2').click(function () {
+                if (product2 == 0) {
+                    product2++;
+                    var $remove = $(this).parents('tr').find('.removeProduct2').parent();
+                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                }
+                else {
+                    var $current = $(this).parents('tr').find('.current');
+                    if (product2 == 8)
+                        return false;
+                    else {
+                        product2++;
+                        $current.removeClass('current');
+                        $current.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                    }
+                }
+            });
+            $('.removeProduct2').click(function () {
+                var $current = $(this).parents('tr').find('.current');
+                if (product2 == 0)
+                    return false;
+                else {
+                    product2--;
+                    $current.removeClass('current').removeClass('amber').addClass('grey lighten-5');
+                    if (product2 > 0)
+                        $current.prev().addClass('current');
+                }
+            });
+
+            var water = 4;
+            $('.addWater').click(function () {
+                if (water == 0) {
+                    water++;
+                    var $remove = $(this).parents('tr').find('.removeWater').parent();
+                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                }
+                else {
+                    var $current = $(this).parents('tr').find('.current');
+                    if (water == 8)
+                        return false;
+                    else {
+                        water++;
+                        $current.removeClass('current');
+                        $current.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                    }
+                }
+            });
+            $('.removeWater').click(function () {
+                var $current = $(this).parents('tr').find('.current');
+                if (water == 0)
+                    return false;
+                else {
+                    water--;
+                    $current.removeClass('current').removeClass('amber').addClass('grey lighten-5');
+                    if (water > 0)
+                        $current.prev().addClass('current');
+                }
+            });
+
+            var mixer = 4;
+            $('.addMixer').click(function () {
+                if (mixer == 0) {
+                    mixer++;
+                    var $remove = $(this).parents('tr').find('.removeMixer').parent();
+                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                }
+                else {
+                    var $current = $(this).parents('tr').find('.current');
+                    if (mixer == 8)
+                        return false;
+                    else {
+                        mixer++;
+                        $current.removeClass('current');
+                        $current.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                    }
+                }
+            });
+            $('.removeMixer').click(function () {
+                var $current = $(this).parents('tr').find('.current');
+                if (mixer == 0)
+                    return false;
+                else {
+                    mixer--;
+                    $current.removeClass('current').removeClass('amber').addClass('grey lighten-5');
+                    if (mixer > 0)
+                        $current.prev().addClass('current');
+                }
+            });            
+
+            var temperature = 4;
+            $('.addTemperature').click(function () {
+                if (temperature == 0) {
+                    temperature++;
+                    var $remove = $(this).parents('tr').find('.removeTemperature').parent();
+                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                }
+                else {
+                    var $current = $(this).parents('tr').find('.current');
+                    if (temperature == 8)
+                        return false;
+                    else {
+                        temperature++;
+                        $current.removeClass('current');
+                        $current.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                    }
+                }
+            });
+            $('.removeTemperature').click(function () {
+                var $current = $(this).parents('tr').find('.current');
+                if (temperature == 0)
+                    return false;
+                else {
+                    temperature--;
+                    $current.removeClass('current').removeClass('amber').addClass('grey lighten-5');
+                    if (temperature > 0)
+                        $current.prev().addClass('current');
+                }
+            });   
+        });
+    </script>
+}
