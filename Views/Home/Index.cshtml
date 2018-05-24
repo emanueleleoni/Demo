@@ -19,7 +19,7 @@
         @{ var index = 1; }
         @foreach (var category in categories)
         {
-            <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(/assets/images/bg-cat@(category.CategoryProductID).jpg); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
+            <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(@(category.CategoryProduct.Image)); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
                 <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:40px; width:300px;" class="black">
                     <span style="font-weight:bold; font-size:22px; color:white; text-transform:uppercase;">@category.Name</span>
                 </div>
@@ -45,7 +45,7 @@
                 @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)))
                 {
                     <a href="javascript:;" quantity="@product.quantity" class="@(product.quantity.Equals(0) ? "esaurito" : "")" data-content="prod@(product.productID)">
-                        <div class="col s12 m3">
+                        <div class="col s12 m3" style="min-height:304px;">
                             <div class="card">
                                 <div class="card-image">
                                     <img height="auto" src="@product.image" />
@@ -72,7 +72,9 @@
         <div class="section step2 hidden" id="prod@(product.productID)">
             <div class="row" style="margin-top:7px;">
                 <div class="col s12">
-                    <img src="@product.image" width="100%" />
+                    <div class="col m3"></div>
+                    <div class="col m6"><img src="@product.image" width="100%" /></div>
+                    <div class="col m3"></div>
                 </div>
                 <div class="col s12 center-align">
                     <h1 style="text-transform:uppercase;">@product.name</h1>
@@ -138,6 +140,14 @@
     </div>
 </div>
 
+<!-- ERROR -->
+<div class="valign-wrapper white error center-align hidden" style="position:fixed; top:0; right:0; bottom:0; left:0; opacity:1; z-index:1000;">
+    <div style="margin:0 auto;">
+        <p><i class="material-icons large">error</i></p>
+        <h2 class="red-text">Siamo spiacenti, ma si &eacute; verificato un problema.<br />Riprovare pi&uacute; tardi.</h2>
+    </div>
+</div>
+
 <!-- LOADER -->
 <div class="valign-wrapper white hidden loader" style="position:fixed; top:0; right:0; bottom:0; left:0; opacity:0.7; z-index:1000;">
     <div class="preloader-wrapper big active" style="margin:0 auto;">
@@ -157,6 +167,10 @@
     <script type="text/javascript">
         $(function () {
             $('.loader').toggleClass('hidden');
+            var height = $('#index-banner').height();
+            var banner = $('.banner').height();
+            var fullHeight = height - banner;
+
             setTimeout(function () { 
                 $('.step0 .carousel.carousel-slider').carousel({
                     fullWidth: true,
@@ -165,11 +179,7 @@
                 });
 
                 // RESIZE STEP0
-                var height = $('#index-banner').height();
-                var banner = $('.banner').height();
-                var fullHeight = height - banner;
                 $('.step0').height(fullHeight); 
-
                 $('.loader').toggleClass('hidden');
             }, 2000);
            
@@ -312,22 +322,36 @@
 
         function checkStatus() {
             $.get("/Home/Status", function (data, status) {
+                // Se risposta è ko, attiva il bottone
+                if (data == 'ko') {
+                    $('.error').removeClass('hidden');
+                }
                 // Se risposta è 1, allora porta chiusa e rfid attiva
                 if (data == '1') {
+                    // Se il server risponde, nasconde eventuale banner di errore
+                    if (!$('.error').hasClass('hidden'))
+                        $('.error').addClass('hidden');
                     $('.creditHeader').removeClass('red-text').addClass('green-text');
-                    $('.disabled').removeClass('disabled');
-                    setTimeout(function () { checkStatus(); }, 2000);
+                    $('.confirm').removeClass('disabled');
+                    setTimeout(function () { checkStatus(); }, 1000);
                 }
                 // Se risposta è 0, allora porta chiusa e rfid non attivo
                 else if (data == '0') {
+                    // Se il server risponde, nasconde eventuale banner di errore
+                    if (!$('.error').hasClass('hidden'))
+                        $('.error').addClass('hidden');
                     $('.creditHeader').removeClass('green-text').addClass('red-text');
-                    $('.disabled').addClass('disabled');
-                    setTimeout(function () { checkStatus(); }, 2000);
+                    $('.confirm').addClass('disabled');
+                    setTimeout(function () { checkStatus(); }, 1000);
                 }
+                // Se risposta è 2, allora porta aperta 
                 else if (data == '2') {
+                    // Se il server risponde, nasconde eventuale banner di errore
+                    if (!$('.error').hasClass('hidden'))
+                        $('.error').addClass('hidden');
                     $('.loader').removeClass('hidden');
-                    $.get("/Home/Close", function (data, status) {
-                        console.log('close');
+                    $.get("/Home/Open", function (data, status) {
+                        console.log('Open');
                     });
                 }
             });

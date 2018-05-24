@@ -45,7 +45,8 @@ namespace lk2_demo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string password){
+        public IActionResult Index(string password)
+        {
             if (!string.IsNullOrEmpty(password))
             {
                 if (password.Equals("1234"))
@@ -57,10 +58,11 @@ namespace lk2_demo.Controllers
             return View();
         }
 
-        public IActionResult Selection(){
+        public IActionResult Selection()
+        {
             ViewBag.Categories = repoCat.GetList(1);
             ViewBag.Products = repoProd.GetAdminList(1);
-            
+
             return View();
         }
 
@@ -70,22 +72,25 @@ namespace lk2_demo.Controllers
         }
 
         [HttpPost]
-        public string Update(int categoryProductID, int productID, double price, int selection, int quantity, int position){
+        public string Update(int categoryProductID, int productID, double price, int selection, int quantity, int position)
+        {
             repoProd.UpdateProduct(productID, categoryProductID, price, selection, quantity, position);
 
             return "ok";
         }
 
         [HttpPost]
-        public string Delete(int categoryProductID, int productID, int position) {
+        public string Delete(int categoryProductID, int productID, int position)
+        {
             repoProd.DeleteProduct(categoryProductID, productID, position);
 
             return "ok";
         }
 
         [HttpPost]
-        public IActionResult Add(int categoryProductID){
-            var product = repoProd.AddProduct(categoryProductID);    
+        public IActionResult Add(int categoryProductID)
+        {
+            var product = repoProd.AddProduct(categoryProductID);
 
             return PartialView("_AddProduct", product);
         }
@@ -99,33 +104,41 @@ namespace lk2_demo.Controllers
             return "ok";
         }
 
-        public IActionResult Report(){
+        public IActionResult Report()
+        {
 
             return View();
         }
 
         public async Task<string> Close()
         {
-            UTF8Encoding enc = new UTF8Encoding();
-            string data = "{ \"params\": [" + _jsonRPC.URL_Public + "],\"method\" : \"" + _jsonRPC.URL_Change + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
+            var result = "ko";
+            try
+            {
+                UTF8Encoding enc = new UTF8Encoding();
+                string data = "{ \"params\": [" + _jsonRPC.URL_Public + "],\"method\" : \"" + _jsonRPC.URL_Change + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
 
-            //Create request
-            WebRequest request = WebRequest.Create(_jsonRPC.Server);
-            request.Method = "POST";
-            request.ContentType = "application/json";
+                //Create request
+                WebRequest request = WebRequest.Create(_jsonRPC.Server);
+                request.Method = "POST";
+                request.ContentType = "application/json";
 
-            //Set data in request
-            Stream dataStream = await request.GetRequestStreamAsync();
-            dataStream.Write(enc.GetBytes(data), 0, data.Length);
+                //Set data in request
+                Stream dataStream = await request.GetRequestStreamAsync();
+                dataStream.Write(enc.GetBytes(data), 0, data.Length);
 
 
-            //Get the response
-            WebResponse wr = await request.GetResponseAsync();
-            Stream receiveStream = wr.GetResponseStream();
-            StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
-            string content = reader.ReadToEnd();
+                //Get the response
+                WebResponse wr = await request.GetResponseAsync();
+                Stream receiveStream = wr.GetResponseStream();
+                StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
+                string content = reader.ReadToEnd();
 
-            return JsonConvert.DeserializeObject<JsonRpc>(content).result;
+                result = JsonConvert.DeserializeObject<JsonRpc>(content).result;
+            }
+            catch (Exception ex) { }
+
+            return result;
         }
 
     }

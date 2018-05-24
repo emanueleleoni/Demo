@@ -84,78 +84,97 @@ namespace LK2.Controllers
 
         public async Task<string> Status()
         {
-            UTF8Encoding enc = new UTF8Encoding();
-            string data = "{ \"method\" : \"" + _jsonRPC.Status + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
+            var result = "ko";
+            try
+            {
+                UTF8Encoding enc = new UTF8Encoding();
+                string data = "{ \"method\" : \"" + _jsonRPC.Status + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
 
-            //Create request
-            WebRequest request = WebRequest.Create(_jsonRPC.Server);
-            request.Method = "POST";
-            request.ContentType = "application/json";
+                //Create request
+                WebRequest request = WebRequest.Create(_jsonRPC.Server);
+                request.Method = "POST";
+                request.ContentType = "application/json";
 
-            //Set data in request
-            Stream dataStream = await request.GetRequestStreamAsync();
-            dataStream.Write(enc.GetBytes(data), 0, data.Length);
+                //Set data in request
+                Stream dataStream = await request.GetRequestStreamAsync();
+                dataStream.Write(enc.GetBytes(data), 0, data.Length);
 
 
-            //Get the response
-            WebResponse wr = await request.GetResponseAsync();
-            Stream receiveStream = wr.GetResponseStream();
-            StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
-            string content = reader.ReadToEnd();
+                //Get the response
+                WebResponse wr = await request.GetResponseAsync();
+                Stream receiveStream = wr.GetResponseStream();
+                StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
+                string content = reader.ReadToEnd();
 
-            return JsonConvert.DeserializeObject<JsonRpc>(content).result;
+                result = JsonConvert.DeserializeObject<JsonRpc>(content).result;
+            }
+            catch (Exception ex) { }
+
+            return result;
         }
 
         public async Task<string> Open()
         {
-            UTF8Encoding enc = new UTF8Encoding();
-            string data = "{ \"params\": [" + _jsonRPC.URL_Admin + "],\"method\" : \"" + _jsonRPC.URL_Change + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
+            var result = "ko";
+            try
+            {
+                UTF8Encoding enc = new UTF8Encoding();
+                string data = "{ \"params\": [" + _jsonRPC.URL_Admin + "],\"method\" : \"" + _jsonRPC.URL_Change + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
 
-            //Create request
-            WebRequest request = WebRequest.Create(_jsonRPC.Server);
-            request.Method = "POST";
-            request.ContentType = "application/json";
+                //Create request
+                WebRequest request = WebRequest.Create(_jsonRPC.Server);
+                request.Method = "POST";
+                request.ContentType = "application/json";
 
-            //Set data in request
-            Stream dataStream = await request.GetRequestStreamAsync();
-            dataStream.Write(enc.GetBytes(data), 0, data.Length);
+                //Set data in request
+                Stream dataStream = await request.GetRequestStreamAsync();
+                dataStream.Write(enc.GetBytes(data), 0, data.Length);
 
 
-            //Get the response
-            WebResponse wr = await request.GetResponseAsync();
-            Stream receiveStream = wr.GetResponseStream();
-            StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
-            string content = reader.ReadToEnd();
+                //Get the response
+                WebResponse wr = await request.GetResponseAsync();
+                Stream receiveStream = wr.GetResponseStream();
+                StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
+                string content = reader.ReadToEnd();
 
-            return JsonConvert.DeserializeObject<JsonRpc>(content).result;
+                result = JsonConvert.DeserializeObject<JsonRpc>(content).result;
+            }
+            catch (Exception ex) { }
+
+            return result;
         }
-
 
         [HttpPost]
         public async Task<string> Erogate(int selection, int sugar)
         {
-            UTF8Encoding enc = new UTF8Encoding();
-            string data = "{ \"params\": ["+ selection + "], \"method\" : \"" + _jsonRPC.Erogate + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
+            var result = "ko";
 
-            //Create request
-            WebRequest request = WebRequest.Create(_jsonRPC.Server);
-            request.Method = "POST";
-            request.ContentType = "application/json";
+            try
+            {
+                UTF8Encoding enc = new UTF8Encoding();
+                string data = "{ \"params\": [" + selection + "], \"method\" : \"" + _jsonRPC.Erogate + "\", \"id\" : \"" + Guid.NewGuid() + "\", \"jsonrpc\": \"2.0\" }";
 
-            //Set data in request
-            Stream dataStream = await request.GetRequestStreamAsync();
-            dataStream.Write(enc.GetBytes(data), 0, data.Length);
+                //Create request
+                WebRequest request = WebRequest.Create(_jsonRPC.Server);
+                request.Method = "POST";
+                request.ContentType = "application/json";
 
-            //Get the response
-            WebResponse wr = await request.GetResponseAsync();
-            Stream receiveStream = wr.GetResponseStream();
-            StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
-            string content = reader.ReadToEnd();
+                //Set data in request
+                Stream dataStream = await request.GetRequestStreamAsync();
+                dataStream.Write(enc.GetBytes(data), 0, data.Length);
 
-            var result = JsonConvert.DeserializeObject<JsonRpc>(content).result;
+                //Get the response
+                WebResponse wr = await request.GetResponseAsync();
+                Stream receiveStream = wr.GetResponseStream();
+                StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
+                string content = reader.ReadToEnd();
 
-            // SE RESULT è OK SCALA LA QUANTITA'
-            repoProd.UpdateQuantity(selection);        
+                result = JsonConvert.DeserializeObject<JsonRpc>(content).result;
+
+                // SE RESULT è OK SCALA LA QUANTITA'
+                repoProd.UpdateQuantity(selection);
+            }
+            catch (Exception ex) { }
 
             return result;
         }
