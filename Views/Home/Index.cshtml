@@ -234,7 +234,9 @@
 
             // CONFERMA PRODOTTO
             $('.confirm').click(function () {
-                var sugarToErogate = 0;
+                $(this).addClass('disabled');
+
+                var sugarToErogate = -1;
                 var $container = $(this).parent();
                 var $sugar = $container.find('.sugar');
                 if ($sugar.length == 1) {
@@ -257,6 +259,7 @@
                 var selection = $(this).attr('selection');
                 var obj = JSON.parse(selection);
                 var i = 0;
+                // Cicla le selezioni, finchè ne trova una disponibile
                 while ((i < obj.length) && (available == 0)) {
                     if (obj[i].quantity > 0) {
                         available = obj[i].selection;
@@ -275,20 +278,8 @@
                 $(this).attr('selection', JSON.stringify(obj));
                 if (available == 0)
                     return false;
-                $(this).addClass('disabled');
-                $('.step2').addClass('hidden');
-                $('.step3').removeClass('hidden').height(fullHeight);
-                $('.step3 .carousel.carousel-slider').carousel({
-                    fullWidth: true,
-                    numVisible: 1,
-                    indicators: true
-                });
-                $(this).removeClass('disabled');
+
                 erogateProduct(available, sugarToErogate);
-                progressBar(0);
-                var myVideo = document.getElementById("erogation");
-                myVideo.play();
-                setTimeout(function () { reset(); }, 5000);
             });
 
             $('.go-home').click(function () {
@@ -364,7 +355,23 @@
                     sugar: sugar
                 },
                 function (data, status) {
-                    console.log(data);
+                    if (data == "ko") {
+                        $('.error').removeClass('hidden');
+                        setTimeout(function () { reset(); $('.error').addClass('hidden'); }, 5000);
+                    } else {
+                        var height = $('.step0').height();
+                        $('.step2').addClass('hidden');
+                        $('.step3').removeClass('hidden').height(height);
+                        $('.step3 .carousel.carousel-slider').carousel({
+                            fullWidth: true,
+                            numVisible: 1,
+                            indicators: true
+                        });
+                        progressBar(0);
+                        var myVideo = document.getElementById("erogation");
+                        myVideo.play();
+                        setTimeout(function () { reset(); }, 5000);
+                    }
                 });
         }
     </script>

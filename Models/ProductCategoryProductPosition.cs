@@ -19,7 +19,7 @@ namespace LK2.Models
         [Column(Order = 3)]
         public int Position { get; set; }
 
-        public int Selection { get; set; }
+        public string Selection { get; set; }
         public int Quantity { get; set; }
 
         public virtual Product Product { get; set; }

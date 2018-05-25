@@ -145,9 +145,11 @@ namespace LK2.Controllers
         }
 
         [HttpPost]
-        public async Task<string> Erogate(int selection, int sugar)
+        public async Task<string> Erogate(string selection, int sugar)
         {
             var result = "ko";
+            if (sugar >= 0)
+                selection = selection + sugar.ToString();
 
             try
             {

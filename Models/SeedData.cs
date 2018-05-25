@@ -959,7 +959,7 @@ namespace LK2.Models
                         ProductID = 1,
                         CategoryProductID = 1,
                         Position = 1,
-                        Selection = 1,
+                        Selection = "E11",
                         Quantity = 3
                     },
                     new ProductCategoryProductPosition
@@ -967,7 +967,7 @@ namespace LK2.Models
                         ProductID = 2,
                         CategoryProductID = 1,
                         Position = 2,
-                        Selection = 2,
+                        Selection = "E12",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -975,7 +975,7 @@ namespace LK2.Models
                         ProductID = 3,
                         CategoryProductID = 1,
                         Position = 3,
-                        Selection = 3,
+                        Selection = "E13",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -983,7 +983,7 @@ namespace LK2.Models
                         ProductID = 4,
                         CategoryProductID = 1,
                         Position = 4,
-                        Selection = 4,
+                        Selection = "E14",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -991,7 +991,7 @@ namespace LK2.Models
                         ProductID = 5,
                         CategoryProductID = 1,
                         Position = 5,
-                        Selection = 5,
+                        Selection = "E15",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -999,7 +999,7 @@ namespace LK2.Models
                         ProductID = 6,
                         CategoryProductID = 1,
                         Position = 6,
-                        Selection = 6,
+                        Selection = "E16",
                         Quantity = 2
                     },
                     new ProductCategoryProductPosition
@@ -1007,7 +1007,7 @@ namespace LK2.Models
                         ProductID = 7,
                         CategoryProductID = 1,
                         Position = 7,
-                        Selection = 7,
+                        Selection = "E17",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -1015,7 +1015,7 @@ namespace LK2.Models
                         ProductID = 8,
                         CategoryProductID = 1,
                         Position = 8,
-                        Selection = 8,
+                        Selection = "E18",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -1023,7 +1023,7 @@ namespace LK2.Models
                         ProductID = 9,
                         CategoryProductID = 1,
                         Position = 9,
-                        Selection = 9,
+                        Selection = "E19",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -1031,7 +1031,7 @@ namespace LK2.Models
                         ProductID = 10,
                         CategoryProductID = 1,
                         Position = 10,
-                        Selection = 10,
+                        Selection = "E20",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -1039,7 +1039,7 @@ namespace LK2.Models
                         ProductID = 11,
                         CategoryProductID = 1,
                         Position = 11,
-                        Selection = 11,
+                        Selection = "E21",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
@@ -1047,7 +1047,7 @@ namespace LK2.Models
                         ProductID = 12,
                         CategoryProductID = 1,
                         Position = 12,
-                        Selection = 12,
+                        Selection = "E22",
                         Quantity = 0
                     },
                     // Bevande calde
@@ -1056,71 +1056,63 @@ namespace LK2.Models
                         ProductID = 13,
                         CategoryProductID = 2,
                         Position = 1,
-                        Selection = 13,
-                        Quantity = 0
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 13,
-                        CategoryProductID = 2,
-                        Position = 2,
-                        Selection = 13,
+                        Selection = "E23",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 14,
                         CategoryProductID = 2,
-                        Position = 3,
-                        Selection = 14,
+                        Position = 2,
+                        Selection = "E24",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 15,
                         CategoryProductID = 2,
-                        Position = 4,
-                        Selection = 15,
+                        Position = 3,
+                        Selection = "E25",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 16,
                         CategoryProductID = 2,
-                        Position = 5,
-                        Selection = 16,
+                        Position = 4,
+                        Selection = "E26",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 17,
                         CategoryProductID = 2,
-                        Position = 6,
-                        Selection = 17,
+                        Position = 5,
+                        Selection = "E27",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 18,
                         CategoryProductID = 2,
-                        Position = 7,
-                        Selection = 18,
+                        Position = 6,
+                        Selection = "E28",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 19,
                         CategoryProductID = 2,
-                        Position = 8,
-                        Selection = 19,
+                        Position = 7,
+                        Selection = "E29",
                         Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 20,
                         CategoryProductID = 2,
-                        Position = 9,
-                        Selection = 20,
+                        Position = 8,
+                        Selection = "E30",
                         Quantity = 0
                     },
                     // Bevande fredde
@@ -1129,7 +1121,7 @@ namespace LK2.Models
                         ProductID = 21,
                         CategoryProductID = 3,
                         Position = 1,
-                        Selection = 21,
+                        Selection = "E031",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1137,7 +1129,7 @@ namespace LK2.Models
                         ProductID = 22,
                         CategoryProductID = 3,
                         Position = 2,
-                        Selection = 22,
+                        Selection = "E032",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1145,7 +1137,7 @@ namespace LK2.Models
                         ProductID = 23,
                         CategoryProductID = 3,
                         Position = 3,
-                        Selection = 23,
+                        Selection = "E033",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1153,7 +1145,7 @@ namespace LK2.Models
                         ProductID = 24,
                         CategoryProductID = 3,
                         Position = 4,
-                        Selection = 24,
+                        Selection = "E034",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1161,7 +1153,7 @@ namespace LK2.Models
                         ProductID = 25,
                         CategoryProductID = 3,
                         Position = 5,
-                        Selection = 25,
+                        Selection = "E035",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1169,7 +1161,7 @@ namespace LK2.Models
                         ProductID = 26,
                         CategoryProductID = 3,
                         Position = 6,
-                        Selection = 26,
+                        Selection = "E036",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1177,7 +1169,7 @@ namespace LK2.Models
                         ProductID = 27,
                         CategoryProductID = 3,
                         Position = 7,
-                        Selection = 27,
+                        Selection = "E037",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1185,7 +1177,7 @@ namespace LK2.Models
                         ProductID = 28,
                         CategoryProductID = 3,
                         Position = 8,
-                        Selection = 28,
+                        Selection = "E038",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1193,7 +1185,7 @@ namespace LK2.Models
                         ProductID = 29,
                         CategoryProductID = 3,
                         Position = 9,
-                        Selection = 29,
+                        Selection = "E039",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1201,7 +1193,7 @@ namespace LK2.Models
                         ProductID = 30,
                         CategoryProductID = 3,
                         Position = 10,
-                        Selection = 30,
+                        Selection = "E040",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1209,7 +1201,7 @@ namespace LK2.Models
                         ProductID = 31,
                         CategoryProductID = 3,
                         Position = 11,
-                        Selection = 31,
+                        Selection = "E041",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1217,7 +1209,7 @@ namespace LK2.Models
                         ProductID = 32,
                         CategoryProductID = 3,
                         Position = 12,
-                        Selection = 32,
+                        Selection = "E042",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1225,7 +1217,7 @@ namespace LK2.Models
                         ProductID = 33,
                         CategoryProductID = 3,
                         Position = 13,
-                        Selection = 33,
+                        Selection = "E043",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1233,7 +1225,7 @@ namespace LK2.Models
                         ProductID = 34,
                         CategoryProductID = 3,
                         Position = 14,
-                        Selection = 34,
+                        Selection = "E044",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1241,7 +1233,7 @@ namespace LK2.Models
                         ProductID = 35,
                         CategoryProductID = 3,
                         Position = 15,
-                        Selection = 35,
+                        Selection = "E045",
                         Quantity = 1
                     },
                     // Snack dolci
@@ -1250,7 +1242,7 @@ namespace LK2.Models
                         ProductID = 36,
                         CategoryProductID = 4,
                         Position = 1,
-                        Selection = 36,
+                        Selection = "E046",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1258,7 +1250,7 @@ namespace LK2.Models
                         ProductID = 37,
                         CategoryProductID = 4,
                         Position = 2,
-                        Selection = 37,
+                        Selection = "E047",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1266,7 +1258,7 @@ namespace LK2.Models
                         ProductID = 38,
                         CategoryProductID = 4,
                         Position = 3,
-                        Selection = 38,
+                        Selection = "E048",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1274,7 +1266,7 @@ namespace LK2.Models
                         ProductID = 39,
                         CategoryProductID = 4,
                         Position = 4,
-                        Selection = 39,
+                        Selection = "E049",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1282,7 +1274,7 @@ namespace LK2.Models
                         ProductID = 40,
                         CategoryProductID = 4,
                         Position = 5,
-                        Selection = 40,
+                        Selection = "E050",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1290,7 +1282,7 @@ namespace LK2.Models
                         ProductID = 41,
                         CategoryProductID = 4,
                         Position = 5,
-                        Selection = 41,
+                        Selection = "E051",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1298,7 +1290,7 @@ namespace LK2.Models
                         ProductID = 42,
                         CategoryProductID = 4,
                         Position = 5,
-                        Selection = 42,
+                        Selection = "E052",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1306,7 +1298,7 @@ namespace LK2.Models
                         ProductID = 43,
                         CategoryProductID = 4,
                         Position = 6,
-                        Selection = 43,
+                        Selection = "E053",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1314,7 +1306,7 @@ namespace LK2.Models
                         ProductID = 44,
                         CategoryProductID = 4,
                         Position = 7,
-                        Selection = 44,
+                        Selection = "E054",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1322,7 +1314,7 @@ namespace LK2.Models
                         ProductID = 45,
                         CategoryProductID = 4,
                         Position = 8,
-                        Selection = 45,
+                        Selection = "E055",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1330,7 +1322,7 @@ namespace LK2.Models
                         ProductID = 46,
                         CategoryProductID = 4,
                         Position = 9,
-                        Selection = 46,
+                        Selection = "E056",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1338,7 +1330,7 @@ namespace LK2.Models
                         ProductID = 47,
                         CategoryProductID = 4,
                         Position = 10,
-                        Selection = 47,
+                        Selection = "E057",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1346,7 +1338,7 @@ namespace LK2.Models
                         ProductID = 48,
                         CategoryProductID = 4,
                         Position = 11,
-                        Selection = 48,
+                        Selection = "E058",
                         Quantity = 1
                     },
                     // Snack salati
@@ -1355,7 +1347,7 @@ namespace LK2.Models
                         ProductID = 49,
                         CategoryProductID = 5,
                         Position = 1,
-                        Selection = 59,
+                        Selection = "E059",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1363,7 +1355,7 @@ namespace LK2.Models
                         ProductID = 50,
                         CategoryProductID = 5,
                         Position = 2,
-                        Selection = 50,
+                        Selection = "E060",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1371,7 +1363,7 @@ namespace LK2.Models
                         ProductID = 51,
                         CategoryProductID = 5,
                         Position = 3,
-                        Selection = 51,
+                        Selection = "E061",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1379,7 +1371,7 @@ namespace LK2.Models
                         ProductID = 52,
                         CategoryProductID = 5,
                         Position = 4,
-                        Selection = 52,
+                        Selection = "E062",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1387,7 +1379,7 @@ namespace LK2.Models
                         ProductID = 53,
                         CategoryProductID = 5,
                         Position = 5,
-                        Selection = 53,
+                        Selection = "E063",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1395,7 +1387,7 @@ namespace LK2.Models
                         ProductID = 54,
                         CategoryProductID = 5,
                         Position = 6,
-                        Selection = 54,
+                        Selection = "E064",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1403,7 +1395,7 @@ namespace LK2.Models
                         ProductID = 55,
                         CategoryProductID = 5,
                         Position = 7,
-                        Selection = 55,
+                        Selection = "E065",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1411,7 +1403,7 @@ namespace LK2.Models
                         ProductID = 56,
                         CategoryProductID = 5,
                         Position = 8,
-                        Selection = 56,
+                        Selection = "E066",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1419,7 +1411,7 @@ namespace LK2.Models
                         ProductID = 57,
                         CategoryProductID = 5,
                         Position = 9,
-                        Selection = 57,
+                        Selection = "E067",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1427,7 +1419,7 @@ namespace LK2.Models
                         ProductID = 58,
                         CategoryProductID = 5,
                         Position = 10,
-                        Selection = 58,
+                        Selection = "E068",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1435,7 +1427,7 @@ namespace LK2.Models
                         ProductID = 59,
                         CategoryProductID = 5,
                         Position = 11,
-                        Selection = 59,
+                        Selection = "E069",
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
@@ -1443,7 +1435,7 @@ namespace LK2.Models
                         ProductID = 60,
                         CategoryProductID = 5,
                         Position = 12,
-                        Selection = 60,
+                        Selection = "E070",
                         Quantity = 1
                     }
                 );

@@ -90,6 +90,9 @@ margin-bottom:0;
 .section {
 padding:0;
 }
+.section.step0 {
+    height:900px;
+}
 #index-banner {
     width: 100%;
 }
@@ -166,45 +169,25 @@ form {
         -webkit-border-radius: 5px;
     }
 
-.capslock, .tab, .left-shift {
+.clearLeft {
     clear: left;
 }
 
-#keyboard .tab, #keyboard .delete {
+#keyboard .delete {
     width: 70px;
-}
-
-#keyboard .capslock {
-    width: 80px;
 }
 
 #keyboard .return {
     width: 77px;
 }
 
-#keyboard .left-shift {
-    width: 95px;
-}
-
-#keyboard .right-shift {
-    width: 109px;
-}
-
 .lastitem {
     margin-right: 0;
-}
-
-.uppercase {
-    text-transform: uppercase;
 }
 
 #keyboard .space {
     clear: left;
     width: 601px;
-}
-
-.on {
-    display: none;
 }
 
 #keyboard li:hover {
