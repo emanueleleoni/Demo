@@ -27,12 +27,7 @@
             index++;
         }
     </div>
-    <div class="carousel carousel-slider">
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
-    </div>
+    <img class="banner" src="~/assets/images/banner.jpg" alt="" />
 </div>
 
 <!-- STEP1 LISTA PRODOTTI DELLA CATEGORIA -->
@@ -98,7 +93,7 @@
                             <tbody>
                                 <tr>
                                     <td><a class="waves-effect waves-light btn-large black removeSugar" href="javascript:;"><i class="material-icons">remove</i>button</a></td>
-                                    <td class="amber z-depth-2">1</td>
+                                    <td class="first amber z-depth-2">1</td>
                                     <td class="amber z-depth-2">2</td>
                                     <td class="amber z-depth-2">3</td>
                                     <td class="amber z-depth-2 current">4</td>
@@ -121,23 +116,22 @@
 <!-- STEP3 EROGAZIONE -->
 <div class="section step3 hidden">
     <div class="container" style="display:table; height:100%;">
-        <h2 class="header center black-text">EROGAZIONE IN CORSO</h2>
+        <h2 class="header center flash">EROGAZIONE IN CORSO</h2>
         <div class="col s12">
             <div class="progress">
                 <div class="determinate" style="width: 0%"></div>
             </div>
         </div>
-        <video id="erogation" width="100%">
-            <source src="~/assets/videos/Countdown 5 Seconds HD.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="carousel carousel-slider">
+            <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/counter5.png" alt="" /></a>
+            <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/counter4.png" alt="" /></a>
+            <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/counter3.png" alt="" /></a>
+            <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/counter2.png" alt="" /></a>
+            <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/counter1.png" alt="" /></a>
+            <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/counter0.png" alt="" /></a>
+        </div>
     </div>
-    <div class="carousel carousel-slider">
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner.jpg" alt="" /></a>
-        <a class="carousel-item" href="javascript:;"><img class="banner" src="~/assets/images/banner_1.png" alt="" /></a>
-    </div>
+    <img class="banner" src="~/assets/images/banner_1.png" alt="" />
 </div>
 
 <!-- ERROR -->
@@ -166,18 +160,13 @@
 @section js {
     <script type="text/javascript">
         $(function () {
+            // Mostra il loader mentre calcola le altezze
             $('.loader').toggleClass('hidden');
             var height = $('#index-banner').height();
             var banner = $('.banner').height();
             var fullHeight = height - banner;
 
             setTimeout(function () { 
-                $('.step0 .carousel.carousel-slider').carousel({
-                    fullWidth: true,
-                    numVisible: 1,
-                    indicators: true
-                });
-
                 // RESIZE STEP0
                 $('.step0').height(fullHeight); 
                 $('.loader').toggleClass('hidden');
@@ -202,12 +191,15 @@
                 $('#' + productID).removeClass('hidden');
             });
 
+            // Impostazione di default
             var sugar = 4;
             $('.addSugar').click(function () {
+                // Ripristina il valore dello zucchero in caso di cambio prodotto
+                sugar = $(this).parents('table').find('.current').text();
                 if (sugar == 0) {
                     sugar++;
-                    var $remove = $(this).parents('table').find('.removeSugar').parent();
-                    $remove.next().addClass('current').removeClass('grey lighten-5').addClass('amber');
+                    var $first = $(this).parents('table').find('.first');
+                    $first.addClass('current').removeClass('grey lighten-5').addClass('amber');
                 }
                 else {
                     var $current = $(this).parents('table').find('.current');
@@ -222,6 +214,9 @@
             });
             $('.removeSugar').click(function () {
                 var $current = $(this).parents('table').find('.current');
+                // Ripristina il valore dello zucchero in caso di cambio prodotto
+                if ($current.length > 0)
+                    sugar = $current.text();
                 if (sugar == 0)
                     return false;
                 else {
@@ -235,24 +230,13 @@
             // CONFERMA PRODOTTO
             $('.confirm').click(function () {
                 $(this).addClass('disabled');
-
+                $('.loader').toggleClass('hidden');
                 var sugarToErogate = -1;
                 var $container = $(this).parent();
                 var $sugar = $container.find('.sugar');
                 if ($sugar.length == 1) {
+                    $sugar.addClass('toReset');
                     sugarToErogate = sugar;
-                    // Reimposta lo zucchero a 4
-                    sugar = 4;
-                    $sugar.find('.current').removeClass('current');
-                    $sugar.find('.z-depth-2').each(function (i) {
-                        if (i <= 3) {
-                            $(this).removeClass('grey lighten-5').addClass('amber');
-                            if (i == 3)
-                                $(this).addClass('current');
-                        }
-                        else
-                            $(this).removeClass('amber').addClass('grey lighten-5');
-                    });
                 }
 
                 var available = 0;
@@ -357,22 +341,52 @@
                 function (data, status) {
                     if (data == "ko") {
                         $('.error').removeClass('hidden');
+                        $('.loader').toggleClass('hidden');
                         setTimeout(function () { reset(); $('.error').addClass('hidden'); }, 5000);
                     } else {
                         var height = $('.step0').height();
                         $('.step2').addClass('hidden');
+                        $('.loader').toggleClass('hidden');
                         $('.step3').removeClass('hidden').height(height);
                         $('.step3 .carousel.carousel-slider').carousel({
                             fullWidth: true,
                             numVisible: 1,
-                            indicators: true
+                            indicators: false
                         });
+                        carousel(0);
                         progressBar(0);
-                        var myVideo = document.getElementById("erogation");
-                        myVideo.play();
+
                         setTimeout(function () { reset(); }, 5000);
                     }
+
+                    // Reimposta lo zucchero a 4 in caso di selezione calda
+                    var $sugar = $('.toReset');
+                    if ($sugar.length == 1) {
+                        sugar = 4;
+                        $sugar.find('.current').removeClass('current');
+                        $sugar.find('.z-depth-2').each(function (i) {
+                            if (i <= 3) {
+                                $(this).removeClass('grey lighten-5').addClass('amber');
+                                if (i == 3)
+                                    $(this).addClass('current');
+                            }
+                            else
+                                $(this).removeClass('amber').addClass('grey lighten-5');
+                        });
+                    }
+                    $sugar.removeClass('toReset');
                 });
+        }
+
+        function carousel(index) {
+            if (index == 5)
+                return;
+
+            setTimeout(function () {
+                $('.step3 .carousel.carousel-slider').carousel('next');
+                index = index + 1;
+                carousel(index);
+            }, 833);            
         }
     </script>
 }

@@ -72,7 +72,7 @@ namespace lk2_demo.Controllers
         }
 
         [HttpPost]
-        public string Update(int categoryProductID, int productID, double price, string selection, int quantity, int position)
+        public string Update(int categoryProductID, int productID, double price, int selection, int quantity, int position)
         {
             repoProd.UpdateProduct(productID, categoryProductID, price, selection, quantity, position);
 
@@ -97,7 +97,7 @@ namespace lk2_demo.Controllers
 
 
         [HttpPost]
-        public string Create(int categoryProductID, int productID, int position, string selection, int quantity)
+        public string Create(int categoryProductID, int productID, int position, int selection, int quantity)
         {
             repoProd.AddProductToCategory(categoryProductID, productID, position, selection, quantity);
 

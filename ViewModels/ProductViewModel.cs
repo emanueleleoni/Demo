@@ -32,7 +32,7 @@ namespace LK2.ViewModels
     }
 
     public class Selection {
-        public string selection { get; set; }
+        public int selection { get; set; }
         public int quantity { get; set; }
     }
 }
