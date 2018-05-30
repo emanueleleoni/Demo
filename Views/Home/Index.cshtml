@@ -37,23 +37,48 @@
         <div class="section step1 hidden" id="cat@(category.CategoryProductID)">
             <div class="row">
                 <h2 class="center-align" style="text-transform:uppercase; font-weight:bold;">@category.Name</h2>
-                @foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)))
+
+                @if (category.CategoryProductID.Equals(3))
                 {
-                    <a href="javascript:;" quantity="@product.quantity" class="@(product.quantity.Equals(0) ? "esaurito" : "")" data-content="prod@(product.productID)">
-                        <div class="col s12 m3" style="min-height:304px;">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img height="auto" src="@product.image" />
-                                </div>
-                                <div class="card-stacked">
-                                    <div class="card-content center-align" style="height:115px;">
-                                        <p style="color:black; font-weight:bold; text-transform:uppercase;">@product.name</p>
-                                        <p style="color:black; font-weight:bold; text-transform:uppercase;">@string.Format("{0:N2}", product.price) &euro;</p>
+                    foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(o => o.position))
+                    {
+                        <a href="javascript:;" quantity="@product.quantity" class="@(product.quantity.Equals(0) ? "esaurito" : "")" data-content="prod@(product.productID)">
+                            <div class="col s12 m5" style="min-height:290px;">
+                                <div class="card" style="min-height:266px;">
+                                    <div class="card-image">
+                                        <img height="auto" src="@product.image" />
+                                    </div>
+                                    <div class="card-stacked">
+                                        <div class="card-content center-align" style="height:115px;">
+                                            <p style="color:black; font-weight:bold; font-size:12px; text-transform:uppercase;">@product.name</p>
+                                            @*<p style="color:black; font-weight:bold; text-transform:uppercase;">@string.Format("{0:N2}", product.price) &euro;</p>*@
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    }
+                }
+                else
+                {
+                    foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(o => o.position))
+                    {
+                        <a href="javascript:;" quantity="@product.quantity" class="@(product.quantity.Equals(0) ? "esaurito" : "")" data-content="prod@(product.productID)">
+                            <div class="col s12 m3" style="min-height:304px;">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img height="auto" src="@product.image" />
+                                    </div>
+                                    <div class="card-stacked">
+                                        <div class="card-content center-align" style="height:115px;">
+                                            <p style="color:black; font-weight:bold; font-size:13px; text-transform:uppercase;">@product.name</p>
+                                            @*<p style="color:black; font-weight:bold; text-transform:uppercase;">@string.Format("{0:N2}", product.price) &euro;</p>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    }
                 }
             </div>
             <a style="width:100%; margin-top:20px;" class="waves-effect btn-large go-home black">INDIETRO</a>
@@ -106,7 +131,7 @@
                             </tbody>
                         </table>
                     }
-                    <a style="width:100%; margin-top:20px; " class="waves-effect waves-light btn-large disabled confirm green" selection="@product.JsonSelection">CONFERMA @string.Format("{0:N2}", product.price) &euro;</a>
+                    <a style="width:100%; margin-top:20px; " class="waves-effect waves-light btn-large disabled confirm green" selection="@product.JsonSelection">CONFERMA</a>
                     <a style="width:100%; margin-top:20px; " class="waves-effect waves-light btn-large go-back black">INDIETRO</a>
                 </div>
             </div>
@@ -166,12 +191,12 @@
             var banner = $('.banner').height();
             var fullHeight = height - banner;
 
-            setTimeout(function () { 
+            setTimeout(function () {
                 // RESIZE STEP0
-                $('.step0').height(fullHeight); 
+                $('.step0').height(fullHeight);
                 $('.loader').toggleClass('hidden');
             }, 2000);
-           
+
             var categoryID;
             // CHECK STATUS
             checkStatus();
@@ -264,6 +289,20 @@
                     return false;
 
                 erogateProduct(available, sugarToErogate);
+
+                var height = $('.step0').height();
+                $('.step2').addClass('hidden');
+                $('.loader').toggleClass('hidden');
+                $('.step3').removeClass('hidden').height(height);
+                $('.step3 .carousel.carousel-slider').carousel({
+                    fullWidth: true,
+                    numVisible: 1,
+                    indicators: false
+                });
+                carousel(0);
+                progressBar(0);
+
+                setTimeout(function () { reset(); }, 5000);
             });
 
             $('.go-home').click(function () {
@@ -319,7 +358,7 @@
                     $('.confirm').addClass('disabled');
                     setTimeout(function () { checkStatus(); }, 1000);
                 }
-                // Se risposta è 2, allora porta aperta 
+                // Se risposta è 2, allora porta aperta
                 else if (data == '2') {
                     // Se il server risponde, nasconde eventuale banner di errore
                     if (!$('.error').hasClass('hidden'))
@@ -340,24 +379,9 @@
                 },
                 function (data, status) {
                     if (data == "ko") {
-                        $('.error').removeClass('hidden');
-                        $('.loader').toggleClass('hidden');
-                        setTimeout(function () { reset(); $('.error').addClass('hidden'); }, 5000);
-                    } else {
-                        var height = $('.step0').height();
-                        $('.step2').addClass('hidden');
-                        $('.loader').toggleClass('hidden');
-                        $('.step3').removeClass('hidden').height(height);
-                        $('.step3 .carousel.carousel-slider').carousel({
-                            fullWidth: true,
-                            numVisible: 1,
-                            indicators: false
-                        });
-                        carousel(0);
-                        progressBar(0);
-
-                        setTimeout(function () { reset(); }, 5000);
-                    }
+                        //$('.error').removeClass('hidden');
+                        //setTimeout(function () { reset(); $('.error').addClass('hidden'); }, 5000);
+                    } else { }
 
                     // Reimposta lo zucchero a 4 in caso di selezione calda
                     var $sugar = $('.toReset');
@@ -386,7 +410,7 @@
                 $('.step3 .carousel.carousel-slider').carousel('next');
                 index = index + 1;
                 carousel(index);
-            }, 833);            
+            }, 833);
         }
     </script>
 }

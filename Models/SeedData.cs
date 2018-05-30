@@ -105,84 +105,84 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe.jpg",
+                        Image = "/assets/images/caffe.png",
                         ProductID = 1,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_plus.jpg",
+                        Image = "/assets/images/caffe_plus.png",
                         ProductID = 2,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_lungo.jpg",
+                        Image = "/assets/images/caffe_lungo.png",
                         ProductID = 3,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_macchiato.jpg",
+                        Image = "/assets/images/caffe_macchiato.png",
                         ProductID = 4,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_orzo.jpg",
+                        Image = "/assets/images/caffe_orzo.png",
                         ProductID = 5,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_orzo_bio.jpg",
+                        Image = "/assets/images/caffe_orzo_bio.png",
                         ProductID = 6,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_orzo_macchiato.jpg",
+                        Image = "/assets/images/caffe_orzo_macchiato.png",
                         ProductID = 7,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_ginseng.jpg",
+                        Image = "/assets/images/caffe_ginseng.png",
                         ProductID = 8,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/caffe_nocciola.jpg",
+                        Image = "/assets/images/caffe_nocciola.png",
                         ProductID = 9,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/cappuccino.jpg",
+                        Image = "/assets/images/cappuccino.png",
                         ProductID = 10,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/cappuccino_orzo.jpg",
+                        Image = "/assets/images/cappuccino_orzo.png",
                         ProductID = 11,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 1,
-                        Image = "/assets/images/cappucioc.jpg",
+                        Image = "/assets/images/cappucioc.png",
                         ProductID = 12,
                         Price = 0
                     },
@@ -190,56 +190,56 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/cioccolato.jpg",
+                        Image = "/assets/images/cioccolato.png",
                         ProductID = 13,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/latte.jpg",
+                        Image = "/assets/images/latte.png",
                         ProductID = 14,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/latte_vaniglia.jpg",
+                        Image = "/assets/images/latte_vaniglia.png",
                         ProductID = 15,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/the.jpg",
+                        Image = "/assets/images/the.png",
                         ProductID = 16,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/the_limone.jpg",
+                        Image = "/assets/images/the_limone.png",
                         ProductID = 17,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/the_verde.jpg",
+                        Image = "/assets/images/the_verde.png",
                         ProductID = 18,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/camomilla.jpg",
+                        Image = "/assets/images/camomilla.png",
                         ProductID = 19,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 2,
-                        Image = "/assets/images/infuso.jpg",
+                        Image = "/assets/images/infuso.png",
                         ProductID = 20,
                         Price = 0
                     },
@@ -247,144 +247,151 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/acqua_natia_frizzante.png",
+                        Image = "/assets/images/sanbenedetto_pompelmo.jpg",
                         ProductID = 21,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/acqua_natia_naturale.png",
+                        Image = "/assets/images/sanbenedetto_chinotto.jpg",
                         ProductID = 22,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/acqua_sanbenedetto_frizzante.png",
+                        Image = "/assets/images/schweppes_limone.jpg",
                         ProductID = 23,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/acqua_sanbenedetto_naturale.png",
+                        Image = "/assets/images/schweppes_arancia.jpg",
+                        ProductID = 61,
+                        Price = 0
+                    },
+                    new Product
+                    {
+                        CategoryProductID = 3,
+                        Image = "/assets/images/schweppes_agrumi.jpg",
                         ProductID = 24,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/aranciata_fanta.png",
+                        Image = "/assets/images/the_regular_limone_33cl.jpg",
                         ProductID = 25,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/coca_cola.png",
+                        Image = "/assets/images/the_regular_pesca_33cl.jpg",
                         ProductID = 26,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/pepsi.png",
+                        Image = "/assets/images/sanbenedetto_acqua_33cl.jpg",
                         ProductID = 27,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/sprite.png",
+                        Image = "/assets/images/sanbenedetto_acqua_gas_33cl.jpg",
                         ProductID = 28,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/thè_limone_sanbenedetto.png",
+                        Image = "/assets/images/clementina.jpg",
                         ProductID = 29,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/thè_pesca_sanbenedetto.png",
+                        Image = "/assets/images/limone.png",
                         ProductID = 30,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/yogurt_ananas_yovì.png",
+                        Image = "/assets/images/chinotto.png",
                         ProductID = 31,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/yogurt_arancia_carota_limone_yovì.png",
+                        Image = "/assets/images/gassosa.jpg",
                         ProductID = 32,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/yogurt_banana_yovì.png",
+                        Image = "/assets/images/the_regular_limone_33cl_lattina.jpg",
                         ProductID = 33,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/yogurt_bianco_yovì.png",
+                        Image = "/assets/images/the_regular_pesca_33cl_lattina.jpg",
                         ProductID = 34,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/yogurt_frutta_yovì.png",
+                        Image = "/assets/images/sanbenedetto_acqua_ecogreen_50cl.png",
                         ProductID = 35,
                         Price = 0
                     },
-                   // Snack dolci
                    new Product
                    {
-                       CategoryProductID = 4,
-                       Image = "/assets/images/bauli_5cereali_pesca_melograno.png",
+                       CategoryProductID = 3,
+                       Image = "/assets/images/sanbenedetto_acqua_gas_50cl.jpg",
                        ProductID = 36,
                        Price = 0
                    },
                     new Product
                     {
-                        CategoryProductID = 4,
-                        Image = "/assets/images/bauli_capriccio_di_crema.png",
+                        CategoryProductID = 3,
+                        Image = "/assets/images/sanbenedetto_acqua_leggermente_frizzante_50cl.jpg",
                         ProductID = 37,
                         Price = 0
                     },
                     new Product
                     {
-                        CategoryProductID = 4,
-                        Image = "/assets/images/bounty.png",
+                        CategoryProductID = 3,
+                        Image = "/assets/images/the_regular_limone_50cl.jpg",
                         ProductID = 38,
                         Price = 0
                     },
                     new Product
                     {
-                        CategoryProductID = 4,
-                        Image = "/assets/images/bueno.png",
+                        CategoryProductID = 3,
+                        Image = "/assets/images/the_regular_pesca_50cl.jpg",
                         ProductID = 39,
                         Price = 0
                     },
                     new Product
                     {
-                        CategoryProductID = 4,
-                        Image = "/assets/images/buondì_motta_albicocca.png",
+                        CategoryProductID = 3,
+                        Image = "/assets/images/the_verde_50cl.png",
                         ProductID = 40,
                         Price = 0
                     },
+                    // SNACK DOLCI
                     new Product
                     {
                         CategoryProductID = 4,
@@ -672,140 +679,147 @@ namespace LK2.Models
                     {
                         ProductID = 21,
                         LanguageID = 1,
-                        Name = "Acqua Natia Frizzante",
+                        Name = "Pompelmo San Benedetto 33cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Etichetta nutrizionale</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Valore energetico (calorie)</td><td style=""text - align:center"">1kcal</td></tr><tr><td style=""text - align:left"">Proteine</td><td style=""text - align:center"">0g</td></tr><tr><td style=""text - align:left"">Carboidrati</td><td style=""text - align:center"">0,2g</td></tr><tr><td style=""text - align:left"">Grassi</td><td style=""text - align:center"">0g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 22,
                         LanguageID = 1,
-                        Name = "Acqua Natia Naturale",
+                        Name = "Chinotto San Benedetto 33cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 23,
                         LanguageID = 1,
-                        Name = "Acqua San Benedetto Frizzante",
+                        Name = "Schweppes Limone 33cl",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
+                        ProductID = 61,
+                        LanguageID = 1,
+                        Name = "Schweppes Arancia 33cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 24,
                         LanguageID = 1,
-                        Name = "Acqua San Benedetto Naturale",
+                        Name = "Schweppes Agrumi 33cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 25,
                         LanguageID = 1,
-                        Name = "Fanta",
+                        Name = "Thè Regular Limone 33cl PET",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 26,
                         LanguageID = 1,
-                        Name = "Coca Cola",
+                        Name = "Thè Regular Pesca 33cl PET",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 27,
                         LanguageID = 1,
-                        Name = "Pepsi",
+                        Name = "Acqua San Benedetto Naturale 33cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 28,
                         LanguageID = 1,
-                        Name = "Sprite",
+                        Name = "Acqua San Benedetto Frizzante 33cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 29,
                         LanguageID = 1,
-                        Name = "Thè San Benedetto Limone",
+                        Name = "San Benedetto Passione Italiana Clementina 40cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 30,
                         LanguageID = 1,
-                        Name = "Thè San Benedetto Pesca",
+                        Name = "San Benedetto Passione Italiana Limone 40cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 31,
                         LanguageID = 1,
-                        Name = "Yogurt Ananas Yovì",
+                        Name = "San Benedetto Passione Italiana Chinotto 40cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 32,
                         LanguageID = 1,
-                        Name = "Yogurt Ace Yovì",
+                        Name = "San Benedetto Passione Italiana Gassosa 40cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 33,
                         LanguageID = 1,
-                        Name = "Yogurt Banana Yovì",
+                        Name = "Thè Regular Limone 33cl Lattina",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 34,
                         LanguageID = 1,
-                        Name = "Yogurt Bianco Yovì",
+                        Name = "Thè Regular Pesca 33cl Lattina",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 35,
                         LanguageID = 1,
-                        Name = "Yogurt Frutta Yovì",
+                        Name = "Acqua San Benedetto Naturale ECOGREEN 50cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 36,
                         LanguageID = 1,
-                        Name = "Bauli 5 Cereali Pesca Melograno",
+                        Name = "Acqua San Benedetto Frizzante 50cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 37,
                         LanguageID = 1,
-                        Name = "Bauli Capriccio Crema",
+                        Name = "Acqua San Benedetto Leggermente Frizzante 50cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 38,
                         LanguageID = 1,
-                        Name = "Bounty",
+                        Name = "Thè Regular Limone 50cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 39,
                         LanguageID = 1,
-                        Name = "Bueno",
+                        Name = "Thè Regular Pesca 50cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
                     {
                         ProductID = 40,
                         LanguageID = 1,
-                        Name = "Buondì Motta Albicocca",
+                        Name = "Thè Verde 50cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
@@ -960,7 +974,7 @@ namespace LK2.Models
                         CategoryProductID = 1,
                         Position = 1,
                         Selection = 11,
-                        Quantity = 3
+                        Quantity = 1000
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1000,7 +1014,7 @@ namespace LK2.Models
                         CategoryProductID = 1,
                         Position = 6,
                         Selection = 16,
-                        Quantity = 2
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1142,6 +1156,14 @@ namespace LK2.Models
                     },
                     new ProductCategoryProductPosition
                     {
+                        ProductID = 61,
+                        CategoryProductID = 3,
+                        Position = 3,
+                        Selection = 61,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
                         ProductID = 24,
                         CategoryProductID = 3,
                         Position = 4,
@@ -1236,110 +1258,110 @@ namespace LK2.Models
                         Selection = 45,
                         Quantity = 1
                     },
-                    // Snack dolci
                     new ProductCategoryProductPosition
                     {
                         ProductID = 36,
-                        CategoryProductID = 4,
-                        Position = 1,
+                        CategoryProductID = 3,
+                        Position = 16,
                         Selection = 46,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 37,
-                        CategoryProductID = 4,
-                        Position = 2,
+                        CategoryProductID = 3,
+                        Position = 17,
                         Selection = 47,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 38,
-                        CategoryProductID = 4,
-                        Position = 3,
+                        CategoryProductID = 3,
+                        Position = 18,
                         Selection = 48,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 39,
-                        CategoryProductID = 4,
-                        Position = 4,
+                        CategoryProductID = 3,
+                        Position = 19,
                         Selection = 49,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 40,
-                        CategoryProductID = 4,
-                        Position = 5,
+                        CategoryProductID = 3,
+                        Position = 20,
                         Selection = 50,
                         Quantity = 1
                     },
+                    // Snack dolci
                     new ProductCategoryProductPosition
                     {
                         ProductID = 41,
                         CategoryProductID = 4,
-                        Position = 5,
+                        Position = 1,
                         Selection = 51,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 42,
                         CategoryProductID = 4,
-                        Position = 5,
+                        Position = 2,
                         Selection = 52,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 43,
                         CategoryProductID = 4,
-                        Position = 6,
+                        Position = 3,
                         Selection = 53,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 44,
                         CategoryProductID = 4,
-                        Position = 7,
+                        Position = 4,
                         Selection = 54,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 45,
                         CategoryProductID = 4,
-                        Position = 8,
+                        Position = 5,
                         Selection = 55,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 46,
                         CategoryProductID = 4,
-                        Position = 9,
+                        Position = 6,
                         Selection = 56,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 47,
                         CategoryProductID = 4,
-                        Position = 10,
+                        Position = 7,
                         Selection = 57,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 48,
                         CategoryProductID = 4,
-                        Position = 11,
+                        Position = 8,
                         Selection = 58,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     // Snack salati
                     new ProductCategoryProductPosition
@@ -1348,7 +1370,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 1,
                         Selection = 59,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1356,7 +1378,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 2,
                         Selection = 60,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1364,7 +1386,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 3,
                         Selection = 61,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1372,7 +1394,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 4,
                         Selection = 62,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1380,7 +1402,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 5,
                         Selection = 63,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1388,7 +1410,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 6,
                         Selection = 64,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1396,7 +1418,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 7,
                         Selection = 65,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1404,7 +1426,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 8,
                         Selection = 66,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1412,7 +1434,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 9,
                         Selection = 67,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1420,7 +1442,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 10,
                         Selection = 68,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1428,7 +1450,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 11,
                         Selection = 69,
-                        Quantity = 1
+                        Quantity = 0
                     },
                     new ProductCategoryProductPosition
                     {
@@ -1436,7 +1458,7 @@ namespace LK2.Models
                         CategoryProductID = 5,
                         Position = 12,
                         Selection = 70,
-                        Quantity = 1
+                        Quantity = 0
                     }
                 );
                 #endregion

@@ -218,3 +218,21 @@ form {
         color: #26a69a;
     }
 }
+
+@media only screen and (min-width: 601px) {
+    .row .col.m5 {
+        width: 20%;
+        margin-left: auto;
+        left: auto;
+        right: auto;
+    }
+}
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 80%;
+    }
+}
+
+.card .card-content {
+    padding:24px 0;
+}
