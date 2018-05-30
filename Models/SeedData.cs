@@ -254,7 +254,7 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/sanbenedetto_chinotto.jpg",
+                        Image = "/assets/images/sanbenedetto_chinotto.png",
                         ProductID = 22,
                         Price = 0
                     },
@@ -303,7 +303,7 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/sanbenedetto_acqua_gas_33cl.jpg",
+                        Image = "/assets/images/sanbenedetto_acqua_gas_33cl.png",
                         ProductID = 28,
                         Price = 0
                     },
