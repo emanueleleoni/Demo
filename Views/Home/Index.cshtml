@@ -43,8 +43,8 @@
                     foreach (var product in products.Where(p => p.categoryID.Equals(category.CategoryProductID)).OrderBy(o => o.position))
                     {
                         <a href="javascript:;" quantity="@product.quantity" class="@(product.quantity.Equals(0) ? "esaurito" : "")" data-content="prod@(product.productID)">
-                            <div class="col s12 m5" style="min-height:290px;">
-                                <div class="card" style="min-height:266px;">
+                            <div class="col s12 m5" style="min-height:280px;">
+                                <div class="card" style="min-height:256px;">
                                     <div class="card-image">
                                         <img height="auto" src="@product.image" />
                                     </div>

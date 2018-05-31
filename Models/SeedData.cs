@@ -247,7 +247,7 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/sanbenedetto_pompelmo.jpg",
+                        Image = "/assets/images/sanbenedetto_pompelmo.png",
                         ProductID = 21,
                         Price = 0
                     },
@@ -256,6 +256,13 @@ namespace LK2.Models
                         CategoryProductID = 3,
                         Image = "/assets/images/sanbenedetto_chinotto.png",
                         ProductID = 22,
+                        Price = 0
+                    },
+                    new Product
+                    {
+                        CategoryProductID = 3,
+                        Image = "/assets/images/sanbenedetto_allegra.png",
+                        ProductID = 62,
                         Price = 0
                     },
                     new Product
@@ -296,7 +303,7 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/sanbenedetto_acqua_33cl.jpg",
+                        Image = "/assets/images/sanbenedetto_acqua_33cl.png",
                         ProductID = 27,
                         Price = 0
                     },
@@ -338,49 +345,49 @@ namespace LK2.Models
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/the_regular_limone_33cl_lattina.jpg",
+                        Image = "/assets/images/the_regular_limone_33cl_lattina.png",
                         ProductID = 33,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/the_regular_pesca_33cl_lattina.jpg",
+                        Image = "/assets/images/the_regular_pesca_33cl_lattina.png",
                         ProductID = 34,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/sanbenedetto_acqua_ecogreen_50cl.png",
+                        Image = "/assets/images/sanbenedetto_acqua_ecogreen_50cl.jpg",
                         ProductID = 35,
                         Price = 0
                     },
                    new Product
                    {
                        CategoryProductID = 3,
-                       Image = "/assets/images/sanbenedetto_acqua_gas_50cl.jpg",
+                       Image = "/assets/images/sanbenedetto_acqua_gas_50cl.png",
                        ProductID = 36,
                        Price = 0
                    },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/sanbenedetto_acqua_leggermente_frizzante_50cl.jpg",
+                        Image = "/assets/images/sanbenedetto_acqua_leggermente_frizzante_50cl.png",
                         ProductID = 37,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/the_regular_limone_50cl.jpg",
+                        Image = "/assets/images/the_regular_limone_50cl.png",
                         ProductID = 38,
                         Price = 0
                     },
                     new Product
                     {
                         CategoryProductID = 3,
-                        Image = "/assets/images/the_regular_pesca_50cl.jpg",
+                        Image = "/assets/images/the_regular_pesca_50cl.png",
                         ProductID = 39,
                         Price = 0
                     },
@@ -687,6 +694,13 @@ namespace LK2.Models
                         ProductID = 22,
                         LanguageID = 1,
                         Name = "Chinotto San Benedetto 33cl",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
+                        ProductID = 62,
+                        LanguageID = 1,
+                        Name = "Allegra San Benedetto 33cl",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
@@ -1132,7 +1146,7 @@ namespace LK2.Models
                     // Bevande fredde
                     new ProductCategoryProductPosition
                     {
-                        ProductID = 21,
+                        ProductID = 27,
                         CategoryProductID = 3,
                         Position = 1,
                         Selection = 31,
@@ -1140,7 +1154,7 @@ namespace LK2.Models
                     },
                     new ProductCategoryProductPosition
                     {
-                        ProductID = 22,
+                        ProductID = 28,
                         CategoryProductID = 3,
                         Position = 2,
                         Selection = 32,
@@ -1148,153 +1162,161 @@ namespace LK2.Models
                     },
                     new ProductCategoryProductPosition
                     {
-                        ProductID = 23,
-                        CategoryProductID = 3,
-                        Position = 3,
-                        Selection = 33,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 61,
-                        CategoryProductID = 3,
-                        Position = 3,
-                        Selection = 61,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 24,
-                        CategoryProductID = 3,
-                        Position = 4,
-                        Selection = 34,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 25,
-                        CategoryProductID = 3,
-                        Position = 5,
-                        Selection = 35,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 26,
-                        CategoryProductID = 3,
-                        Position = 6,
-                        Selection = 36,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 27,
-                        CategoryProductID = 3,
-                        Position = 7,
-                        Selection = 37,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 28,
-                        CategoryProductID = 3,
-                        Position = 8,
-                        Selection = 38,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 29,
-                        CategoryProductID = 3,
-                        Position = 9,
-                        Selection = 39,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 30,
-                        CategoryProductID = 3,
-                        Position = 10,
-                        Selection = 40,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 31,
-                        CategoryProductID = 3,
-                        Position = 11,
-                        Selection = 41,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 32,
-                        CategoryProductID = 3,
-                        Position = 12,
-                        Selection = 42,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 33,
-                        CategoryProductID = 3,
-                        Position = 13,
-                        Selection = 43,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
-                        ProductID = 34,
-                        CategoryProductID = 3,
-                        Position = 14,
-                        Selection = 44,
-                        Quantity = 1
-                    },
-                    new ProductCategoryProductPosition
-                    {
                         ProductID = 35,
                         CategoryProductID = 3,
-                        Position = 15,
-                        Selection = 45,
+                        Position = 3,
+                        Selection = 62,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 36,
                         CategoryProductID = 3,
-                        Position = 16,
-                        Selection = 46,
+                        Position = 4,
+                        Selection = 33,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 37,
                         CategoryProductID = 3,
-                        Position = 17,
-                        Selection = 47,
+                        Position = 5,
+                        Selection = 61,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 25,
+                        CategoryProductID = 3,
+                        Position = 6,
+                        Selection = 34,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 26,
+                        CategoryProductID = 3,
+                        Position = 7,
+                        Selection = 35,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 33,
+                        CategoryProductID = 3,
+                        Position = 8,
+                        Selection = 36,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 34,
+                        CategoryProductID = 3,
+                        Position = 9,
+                        Selection = 37,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 38,
                         CategoryProductID = 3,
-                        Position = 18,
-                        Selection = 48,
+                        Position = 10,
+                        Selection = 38,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 39,
                         CategoryProductID = 3,
-                        Position = 19,
-                        Selection = 49,
+                        Position = 11,
+                        Selection = 39,
                         Quantity = 1
                     },
                     new ProductCategoryProductPosition
                     {
                         ProductID = 40,
                         CategoryProductID = 3,
+                        Position = 12,
+                        Selection = 40,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 21,
+                        CategoryProductID = 3,
+                        Position = 13,
+                        Selection = 41,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 22,
+                        CategoryProductID = 3,
+                        Position = 14,
+                        Selection = 42,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 62,
+                        CategoryProductID = 3,
+                        Position = 15,
+                        Selection = 43,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 23,
+                        CategoryProductID = 3,
+                        Position = 16,
+                        Selection = 44,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 61,
+                        CategoryProductID = 3,
+                        Position = 17,
+                        Selection = 45,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 24,
+                        CategoryProductID = 3,
+                        Position = 18,
+                        Selection = 46,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 29,
+                        CategoryProductID = 3,
+                        Position = 19,
+                        Selection = 47,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 30,
+                        CategoryProductID = 3,
                         Position = 20,
+                        Selection = 48,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 31,
+                        CategoryProductID = 3,
+                        Position = 21,
+                        Selection = 49,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 32,
+                        CategoryProductID = 3,
+                        Position = 22,
                         Selection = 50,
                         Quantity = 1
                     },
