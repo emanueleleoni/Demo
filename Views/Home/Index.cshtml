@@ -21,14 +21,14 @@
         @foreach (var category in categories)
         {
             <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(@(category.CategoryProduct.Image)); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
-                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:50px; width:450px;" class="black">
+                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:50px; width:500px;" class="black">
                     <span style="font-weight:bold; font-size:40px; color:white; text-transform:uppercase;">@category.Name</span>
                 </div>
             </a>
             index++;
         }
     </div>
-    <img class="banner" src="~/assets/images/banner.jpg" alt="" />
+    <img class="banner" src="~/assets/images/banner_2.jpg" alt="" />
 </div>
 
 <!-- STEP1 LISTA PRODOTTI DELLA CATEGORIA -->
@@ -189,8 +189,8 @@
             // Mostra il loader mentre calcola le altezze
             $('.loader').toggleClass('hidden');
             var height = $('#index-banner').height();
-            var banner = 556;
-            var header = 535;
+            var banner = $('.banner').height();;
+            var header = $('.header').height();;
             var fullHeight = height - banner;
 
             setTimeout(function () {
