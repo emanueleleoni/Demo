@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using LK2.Models;
 using Microsoft.Extensions.Options;
+using System.Linq;
 
 namespace LK2.Controllers
 {
@@ -48,8 +49,8 @@ namespace LK2.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.Categories = repoCat.GetList(1);
-            ViewBag.Products = repoProd.GetList(1);
+            ViewBag.Categories = repoCat.GetList(1).Where(q => q.CategoryProductID.Equals(3)).ToList();
+            ViewBag.Products = repoProd.GetList(1).Where(q => q.categoryID.Equals(3)).ToList();
 
             return View();
         }

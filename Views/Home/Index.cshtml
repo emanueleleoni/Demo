@@ -15,13 +15,14 @@
 
 <!-- STEP0 LISTA CATEGORIE PRODOTTI -->
 <div class="section step0">
+    <img class="header" src="~/assets/images/header.jpg" alt="" />
     <div class="collection center-align">
         @{ var index = 1; }
         @foreach (var category in categories)
         {
             <a href="javascript:;" class="collection-item valign-wrapper center-align" style="position:relative; background:url(@(category.CategoryProduct.Image)); background-size:cover; background-position:center center;" data-content="cat@(category.CategoryProductID)">
-                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:40px; width:300px;" class="black">
-                    <span style="font-weight:bold; font-size:22px; color:white; text-transform:uppercase;">@category.Name</span>
+                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%,-50%); opacity:0.7; border:2px solid white; padding:50px; width:450px;" class="black">
+                    <span style="font-weight:bold; font-size:40px; color:white; text-transform:uppercase;">@category.Name</span>
                 </div>
             </a>
             index++;
@@ -189,7 +190,8 @@
             $('.loader').toggleClass('hidden');
             var height = $('#index-banner').height();
             var banner = $('.banner').height();
-            var fullHeight = height - banner;
+            var header = $('.header').height();
+            var fullHeight = height - banner - header;
 
             setTimeout(function () {
                 // RESIZE STEP0
@@ -290,7 +292,7 @@
 
                 erogateProduct(available, sugarToErogate);
 
-                var height = $('.step0').height();
+                var height = $('#index-banner').height() - 556;
                 $('.step2').addClass('hidden');
                 $('.loader').toggleClass('hidden');
                 $('.step3').removeClass('hidden').height(height);
