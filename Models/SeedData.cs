@@ -398,6 +398,13 @@ namespace LK2.Models
                         ProductID = 40,
                         Price = 0
                     },
+                    new Product
+                    {
+                        CategoryProductID = 3,
+                        Image = "/assets/images/sanbenedetto_anticafonte.jpg",
+                        ProductID = 63,
+                        Price = 0
+                    },
                     // SNACK DOLCI
                     new Product
                     {
@@ -453,6 +460,41 @@ namespace LK2.Models
                         CategoryProductID = 4,
                         Image = "/assets/images/twix.png",
                         ProductID = 48,
+                        Price = 0
+                    },
+                    new Product
+                    {
+                        CategoryProductID = 4,
+                        Image = "/assets/images/caffe_al_ginseng.jpg",
+                        ProductID = 64,
+                        Price = 0
+                    },
+                    new Product
+                    {
+                        CategoryProductID = 4,
+                        Image = "/assets/images/espresso_intenso.jpg",
+                        ProductID = 65,
+                        Price = 0
+                    },
+                    new Product
+                    {
+                        CategoryProductID = 4,
+                        Image = "/assets/images/espresso_intenso_deciso.jpg",
+                        ProductID = 66,
+                        Price = 0
+                    },
+                    new Product
+                    {
+                        CategoryProductID = 4,
+                        Image = "/assets/images/espresso_vellutato.png",
+                        ProductID = 67,
+                        Price = 0
+                    },
+                    new Product
+                    {
+                        CategoryProductID = 4,
+                        Image = "/assets/images/gran_riserva.jpg",
+                        ProductID = 68,
                         Price = 0
                     },
                    // Snack salati
@@ -719,6 +761,13 @@ namespace LK2.Models
                     },
                     new ProductLanguage
                     {
+                        ProductID = 63,
+                        LanguageID = 1,
+                        Name = "San Benedetto Antica Fonte",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
                         ProductID = 24,
                         LanguageID = 1,
                         Name = "Schweppes Agrumi 33cl",
@@ -890,6 +939,41 @@ namespace LK2.Models
                         ProductID = 48,
                         LanguageID = 1,
                         Name = "Twix",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
+                        ProductID = 64,
+                        LanguageID = 1,
+                        Name = "Caffè al ginseng 16 cialde",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
+                        ProductID = 65,
+                        LanguageID = 1,
+                        Name = "Espresso Intenso 16 cialde ",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
+                        ProductID = 66,
+                        LanguageID = 1,
+                        Name = "Espresso Intenso Deciso 16 cialde",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
+                        ProductID = 67,
+                        LanguageID = 1,
+                        Name = "Espresso Vellutato 16 cialde",
+                        Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
+                    },
+                    new ProductLanguage
+                    {
+                        ProductID = 68,
+                        LanguageID = 1,
+                        Name = "Gran Riserva 16 cialde",
                         Description = @"<table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:auto; margin:0 auto;""><thead><tr><th colspan=""2""><strong>Informazioni Nutrizionali</strong></th></tr></thead><tbody><tr><td style=""text - align:left"">Calorie:</td><td style=""text - align:center"">500Kcal</td></tr><tr><td style=""text - align:left"">Carboidrati:</td><td style=""text - align:center"">10g</td></tr><tr><td style=""text - align:left"">Proteine:</td><td style=""text - align:center"">6g</td></tr><tr><td style=""text - align:left"">Grassi:</td><td style=""text - align:center"">2g</td></tr></tbody></table>"
                     },
                     new ProductLanguage
@@ -1320,6 +1404,14 @@ namespace LK2.Models
                         Selection = 50,
                         Quantity = 1
                     },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 63,
+                        CategoryProductID = 3,
+                        Position = 23,
+                        Selection = 70,
+                        Quantity = 0
+                    },
                     // Snack dolci
                     new ProductCategoryProductPosition
                     {
@@ -1384,6 +1476,46 @@ namespace LK2.Models
                         Position = 8,
                         Selection = 58,
                         Quantity = 0
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 64,
+                        CategoryProductID = 4,
+                        Position = 9,
+                        Selection = 71,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 65,
+                        CategoryProductID = 4,
+                        Position = 10,
+                        Selection = 72,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 66,
+                        CategoryProductID = 4,
+                        Position = 11,
+                        Selection = 73,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 67,
+                        CategoryProductID = 4,
+                        Position = 12,
+                        Selection = 74,
+                        Quantity = 1
+                    },
+                    new ProductCategoryProductPosition
+                    {
+                        ProductID = 68,
+                        CategoryProductID = 4,
+                        Position = 13,
+                        Selection = 75,
+                        Quantity = 1
                     },
                     // Snack salati
                     new ProductCategoryProductPosition
