@@ -189,13 +189,14 @@
             // Mostra il loader mentre calcola le altezze
             $('.loader').toggleClass('hidden');
             var height = $('#index-banner').height();
-            var banner = $('.banner').height();
-            var header = $('.header').height();
-            var fullHeight = height - banner - header;
+            var banner = 556;
+            var header = 535;
+            var fullHeight = height - banner;
 
             setTimeout(function () {
                 // RESIZE STEP0
                 $('.step0').height(fullHeight);
+                $('.step0 .collection').height(fullHeight - header);
                 $('.loader').toggleClass('hidden');
             }, 2000);
 
